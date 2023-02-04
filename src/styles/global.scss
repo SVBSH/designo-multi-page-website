@@ -1,0 +1,38 @@
+body {
+  font-family: 'Jost', sans-serif;
+  font-size: var(--font-size-base);
+  position: relative;
+}
+
+h1, h2, h3 {
+  font-weight: var(--font-medium);
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+  letter-spacing: 2px;
+  line-height: 48px;
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  letter-spacing: 2px;
+  line-height: 48px;
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  letter-spacing: 5px;
+  line-height: 26px;
+}
+
+li,
+p {
+  font-size: var(--font-size-sm);
+  line-height: 26px;
+  max-width: 60ch;
+}
+
+.logo {
+  max-width: 202px;
+}

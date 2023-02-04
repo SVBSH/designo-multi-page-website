@@ -1,0 +1,175 @@
+---
+  import pageLogoDark from "../../public/assets/shared/desktop/logo-dark.png";
+  import pageLogoWhite from "../../public/assets/shared/desktop/logo-dark.png";
+
+  import menuIconOpen from "../../public/assets/shared/mobile/icon-hamburger.svg";
+  import menuIconClose from "../../public/assets/shared/mobile/icon-close.svg";
+
+  const pageLogo = {
+    white: pageLogoWhite,
+    dark: pageLogoDark,
+  }
+---
+
+<header class="header">
+  <div class="grid grid-col">
+    <div class="logo-container">
+      <img src={pageLogo.dark} class="logo" alt="Logo - Designo" draggable="false" />
+    </div>
+    <button class="menu-control">
+      <img src={menuIconOpen} data-open="" alt="hamburger menu open" class="menu-open " />
+      <img src={menuIconClose} data-open="" alt="menu close" class="menu-close hide" />
+    </button>
+  </div>
+  <nav class="nav nav--primary">
+    <ul class="nav__list ">
+      <li class="nav__item"><a href="/about/" class="nav__link">Our Company</a></li>
+      <li class="nav__item"><a href="/locations/" class="nav__link">Locations</a></li>
+      <li class="nav__item"><a href="/contact/" class="nav__link">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<style lang="scss">
+  .hide {
+    display: none;
+  }
+
+  .header {
+    position: relative;
+    outline: 3px solid green;
+    padding-block: 2rem;
+  }
+
+
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    transform: translateY(-200%);
+
+    padding-block: 2.5rem;
+    outline: 1px solid red;
+    background-color: var(--color-primary-black);
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--flex-gap, 1rem);
+      padding: 0;
+    }
+
+    &__item {
+      list-style: none;
+      font-size: 1.5rem;
+    }
+
+    &__link {
+      color: var(--color-primary-white);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+  }
+
+  .menu-control {
+    justify-self: end;
+
+    &>*[data-open="false"] {
+      display: none;
+    }
+  }
+
+  .tilt-in-top-1 {
+    --duration: 400ms;
+    -webkit-animation: tilt-in-top-1 var(--duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: tilt-in-top-1 var(--duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  @-webkit-keyframes tilt-in-top-1 {
+    0% {
+      -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+      transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+      opacity: 0;
+    }
+
+    100% {
+      -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+      transform: rotateY(0deg) translateY(0) skewY(0deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes tilt-in-top-1 {
+    0% {
+      -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+      transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
+      opacity: 0;
+    }
+
+    100% {
+      -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+      transform: rotateY(0deg) translateY(0) skewY(0deg);
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .header {
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      padding: 0;
+    }
+
+    .menu-control {
+      display: none;
+    }
+
+    .nav {
+      position: static;
+      justify-self: end;
+
+      background-color: var(--color-primary-white);
+      transform: translateY(0%);
+
+      &__list {
+        flex-direction: row;
+        --flex-gap: 2.1rem;
+
+      }
+
+      &__item {
+        font-size: var(--font-size-sm);
+      }
+
+      &__link {
+        color: var(--color-primary-black);
+      }
+    }
+
+  }
+</style>
+
+<script>
+  const menuOpen = document.querySelector('.menu-open');
+  const menuClose = document.querySelector('.menu-close');
+
+  const nav = document.querySelector('.nav');
+
+  document.querySelector('.menu-control').addEventListener('click', (e) => {
+    menuOpen.classList.toggle('hide');
+    menuClose.classList.toggle('hide');
+
+    const l = nav.classList.contains('tilt-in-top-1');
+    if (l === true) {
+      console.log('hellop')
+      nav.classList.remove('tilt-in-top-1');
+    } else {
+      nav.classList.add('tilt-in-top-1');
+    }
+  });
+</script>

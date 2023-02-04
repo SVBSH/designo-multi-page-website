@@ -1,0 +1,181 @@
+---
+  import pageLogoWhite from "../../public/assets/shared/desktop/logo-light.png";
+
+  import iconFacebook from "../../public/assets/shared/desktop/icon-facebook.svg";
+  import iconInstagram from "../../public/assets/shared/desktop/icon-instagram.svg";
+  import iconPinterest from "../../public/assets/shared/desktop/icon-pinterest.svg";
+  import iconTwitter from "../../public/assets/shared/desktop/icon-twitter.svg";
+  import iconYoutube from "../../public/assets/shared/desktop/icon-youtube.svg";
+
+
+
+---
+
+<footer class="footer bg-primary-black">
+
+  <div class="container">
+    <div class="card flex flex-col text-primary-white bg-primary-peach">
+      <h2>Let’s talk about your project</h2>
+      <p>Ready to take it to the next level? Contact us today and find out how our expertise can
+        help
+        your business grow.</p>
+      <button class="text-primary-white">Get in touch</button>
+    </div>
+    <div class="logo-wrapper">
+      <img draggable="false" class="logo" src={pageLogoWhite} alt="logo">
+    </div>
+    <nav class="nav nav--secondary">
+      <ul class="flex flex-col">
+        <li class=""><a href="/about/" class="nav__link">Our Company</a></li>
+        <li class=""><a href="/locations/" class="nav__link">Locations</a></li>
+        <li class=""><a href="/contact/" class="nav__link">Contact</a></li>
+      </ul>
+    </nav>
+    <ul class="contact-list | flex flex-col" style="--gap: .4rem;">
+      <li class="contact-item | font-bold text-secondary-light-grey">Designo Central Office</li>
+      <li class="contact-item | text-secondary-light-grey">3886 Wellington Street </li>
+      <li class="contact-item | text-secondary-light-grey">Toronto, Ontario M9C 3J5</li>
+    </ul>
+    <ul class="contact-list | flex flex-col" style="--gap: .4rem;">
+      <li class="font-bold text-secondary-light-grey">Contact Us (Central Office)</li>
+      <li class="text-secondary-light-grey">P : +1 253-863-8967</li>
+      <li class="text-secondary-light-grey">M : contact@designo.co</li>
+    </ul>
+    <ul class="social-media-list | flex" style="">
+      <li>
+        <a href="https://www.facebook.com" class="social-m-icon">
+          <img src={iconFacebook} alt="facebook" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com" class="social-m-icon">
+          <img src={iconYoutube} alt="youtube" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com" class="social-m-icon">
+          <img src={iconTwitter} alt="twitter" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.pinterest.com" class="social-m-icon">
+          <img src={iconPinterest} alt="pinterest" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com" class="social-m-icon">
+          <img src={iconInstagram} alt="instagram" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+<style lang="scss">
+  .container {
+    --footer-top-margin: 180px;
+    padding-top: calc(var(--footer-top-margin) + 3rem);
+    margin-top: var(--footer-top-margin);
+    padding-bottom: 5rem;
+
+    position: relative;
+    display: grid;
+    justify-items: center;
+    grid-template-areas:
+      "logo"
+      "navigation"
+      "office"
+      "contact"
+      "socials";
+    gap: 3rem;
+
+
+    background: var(--color-primary-black);
+    color: var(--color-primary-white);
+    text-align: center;
+  }
+
+  .logo-wrapper {
+    grid-area: logo;
+  }
+
+
+  .card {
+    position: absolute;
+    padding-block: 3em;
+    padding-inline: 1.4rem;
+    margin-inline: 2rem;
+    border-radius: 10px;
+    outline: 2px solid green;
+    transform: translateY(calc(-1 * var(--footer-top-margin)));
+
+  }
+
+  .nav {
+    grid-area: navigation;
+
+    &__list {
+      padding: 0;
+      list-style: none;
+    }
+
+    &__link {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+    }
+  }
+
+  .contact-list:nth-of-type(1) {
+    grid-area: office;
+  }
+
+  .contact-list:nth-of-type(2) {
+    grid-area: contact;
+  }
+
+  .social-media-list {
+    grid-area: socials;
+    height: min-content;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      text-align: left;
+      grid-template-areas:
+        "logo navigation navigation"
+        "office contact socials";
+      // justify-content: center;
+      grid-template-columns: auto auto 1fr;
+      gap: 6rem auto;
+    }
+
+    .logo-wrapper {
+      align-self: center;
+    }
+
+    .nav {
+      justify-self: end;
+    }
+
+    .nav>ul {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    .socials {
+      align-self: end;
+    }
+
+    .contact-list:nth-of-type(1),
+    .contact-list:nth-of-type(2) {
+      justify-self: start;
+    }
+
+    .social-media-list {
+      margin-top: auto;
+      margin-left: auto;
+    }
+  }
+</style>

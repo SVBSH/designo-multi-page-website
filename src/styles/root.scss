@@ -1,0 +1,22 @@
+:root {
+  --color-primary-peach: hsla(10, 72%, 66%, 1);
+  --color-primary-black: hsla(264, 4%, 11%, 1);
+  --color-primary-white: hsla(0, 0%, 100%, 1);
+
+  --color-secondary-light-peach: hsla(10, 100%, 80%, 1);
+  --color-secondary-dark-grey: hsla(264, 5%, 20%, 1);
+  --color-secondary-light-grey: hsla(210, 17%, 95%, 0.86);
+  --color-secondary-light-grey-1: hsla(210, 17%, 95%, 0.26);
+
+
+  --font-size-sm: 1rem;
+  --font-size-base: clamp(1.11rem, 1.15vw + 0.84rem, 1.88rem);
+  --font-size-lg: 1.2rem;
+  --font-size-xl: clamp(1.75rem, 3.05vw + 1.03rem, 2.5rem);
+  --font-size-xxl: clamp(2rem, 4.07vw + 1.05rem, 3rem);
+
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+
+}

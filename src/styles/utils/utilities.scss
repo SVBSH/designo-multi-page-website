@@ -1,0 +1,43 @@
+.wrapper {
+  // width: 90vw;
+  // width: clamp(16rem, 90vw, 70rem);
+  // margin-left: auto;
+  // margin-right: auto;
+  // padding-left: 1.5rem;
+  // padding-right: 1.5rem;
+  // position: relative;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.grid-row {
+  grid-auto-flow: row;
+}
+
+.grid-col {
+  grid-auto-flow: column;
+}
+
+.font-medium {
+  font-weight: var(--font-medium);
+}
+
+.font-bold {
+  font-weight: var(--font-bold);
+}

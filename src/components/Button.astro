@@ -1,0 +1,22 @@
+---
+  const { text } = Astro.props;
+---
+
+<button class="btn | text-primary-white font-medium text-uppercase pointer">
+  {text}
+</button>
+
+<style lang="scss">
+  .btn {
+    font-size: var(--font-size-sm);
+    letter-spacing: 2px;
+    padding: 1.5em 1.5em;
+    border-radius: 12px;
+    color: var(--color-primary-black);
+    background-color: var(--color-primary-white);
+
+    &:hover {
+      background-color: var(--color-secondary-light-peach);
+    }
+  }
+</style>

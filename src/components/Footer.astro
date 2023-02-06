@@ -1,26 +1,30 @@
 ---
-  import pageLogoWhite from "../../public/assets/shared/desktop/logo-light.png";
+  import pageLogoWhite from "/assets/shared/desktop/logo-light.png";
 
-  import iconFacebook from "../../public/assets/shared/desktop/icon-facebook.svg";
-  import iconInstagram from "../../public/assets/shared/desktop/icon-instagram.svg";
-  import iconPinterest from "../../public/assets/shared/desktop/icon-pinterest.svg";
-  import iconTwitter from "../../public/assets/shared/desktop/icon-twitter.svg";
-  import iconYoutube from "../../public/assets/shared/desktop/icon-youtube.svg";
+  import iconFacebook from "/assets/shared/desktop/icon-facebook.svg";
+  import iconInstagram from "/assets/shared/desktop/icon-instagram.svg";
+  import iconPinterest from "/assets/shared/desktop/icon-pinterest.svg";
+  import iconTwitter from "/assets/shared/desktop/icon-twitter.svg";
+  import iconYoutube from "/assets/shared/desktop/icon-youtube.svg";
 
-
+  import Button from "./Button.astro";
 
 ---
 
 <footer class="footer bg-primary-black">
 
-  <div class="container">
-    <div class="card flex flex-col text-primary-white bg-primary-peach">
-      <h2>Let’s talk about your project</h2>
-      <p>Ready to take it to the next level? Contact us today and find out how our expertise can
-        help
-        your business grow.</p>
-      <button class="text-primary-white">Get in touch</button>
+  <div class="container | wrapper">
+
+    <div class="card | text-primary-white bg-primary-peach">
+      <div class="card__info | grid">
+        <h2 class="card__heading">Let’s talk about your project</h2>
+        <p class="card__text">Ready to take it to the next level? Contact us today and find out how
+          our expertise can
+          help your business grow.</p>
+      </div>
+      <Button text="Get in touch" class:list={[ 'hello goodbye', { hello: true, world: true }, new Set([ 'hello', 'friend' ]) ]}/>
     </div>
+
     <div class="logo-wrapper">
       <img draggable="false" class="logo" src={pageLogoWhite} alt="logo">
     </div>
@@ -90,7 +94,6 @@
       "socials";
     gap: 3rem;
 
-
     background: var(--color-primary-black);
     color: var(--color-primary-white);
     text-align: center;
@@ -103,22 +106,37 @@
 
   .card {
     position: absolute;
-    padding-block: 3em;
+    left: 0;
+    right: 0;
+
+    display: grid;
+    justify-items: center;
+    gap: 2rem;
+
+    padding-block: 2em;
     padding-inline: 1.4rem;
-    margin-inline: 2rem;
-    border-radius: 10px;
-    outline: 2px solid green;
+
+    border-radius: var(--component-radius);
     transform: translateY(calc(-1 * var(--footer-top-margin)));
 
+    align-items: center;
+
+    &__heading {
+      max-width: 15ch;
+      line-height: 36px;
+    }
+
+    &__info {
+      justify-items: center;
+    }
+
+    &__text {
+      max-width: 40ch;
+    }
   }
 
   .nav {
     grid-area: navigation;
-
-    &__list {
-      padding: 0;
-      list-style: none;
-    }
 
     &__link {
       text-transform: uppercase;
@@ -142,13 +160,26 @@
 
   @media (min-width: 768px) {
     .container {
+      --footer-top-margin: 130px;
       text-align: left;
       grid-template-areas:
         "logo navigation navigation"
         "office contact socials";
-      // justify-content: center;
       grid-template-columns: auto auto 1fr;
       gap: 6rem auto;
+    }
+
+    .card {
+      text-align: left;
+      grid-auto-flow: column;
+      justify-content: space-between;
+      max-height: 400px;
+      padding-inline: 3em;
+      padding-block: 3rem;
+
+      &__info {
+        justify-self: start;
+      }
     }
 
     .logo-wrapper {
@@ -168,8 +199,7 @@
       align-self: end;
     }
 
-    .contact-list:nth-of-type(1),
-    .contact-list:nth-of-type(2) {
+    .contact-list {
       justify-self: start;
     }
 

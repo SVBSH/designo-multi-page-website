@@ -1,9 +1,9 @@
 ---
-  import pageLogoDark from "../../public/assets/shared/desktop/logo-dark.png";
-  import pageLogoWhite from "../../public/assets/shared/desktop/logo-dark.png";
+  import pageLogoDark from "/assets/shared/desktop/logo-dark.png";
+  import pageLogoWhite from "/assets/shared/desktop/logo-dark.png";
 
-  import menuIconOpen from "../../public/assets/shared/mobile/icon-hamburger.svg";
-  import menuIconClose from "../../public/assets/shared/mobile/icon-close.svg";
+  import menuIconOpen from "/assets/shared/mobile/icon-hamburger.svg";
+  import menuIconClose from "/assets/shared/mobile/icon-close.svg";
 
   const pageLogo = {
     white: pageLogoWhite,
@@ -12,7 +12,7 @@
 ---
 
 <header class="header">
-  <div class="grid grid-col">
+  <div class="left-section grid grid-col">
     <div class="logo-container">
       <img src={pageLogo.dark} class="logo" alt="Logo - Designo" draggable="false" />
     </div>
@@ -22,7 +22,7 @@
     </button>
   </div>
   <nav class="nav nav--primary">
-    <ul class="nav__list ">
+    <ul class="nav__list">
       <li class="nav__item"><a href="/about/" class="nav__link">Our Company</a></li>
       <li class="nav__item"><a href="/locations/" class="nav__link">Locations</a></li>
       <li class="nav__item"><a href="/contact/" class="nav__link">Contact</a></li>
@@ -40,9 +40,12 @@
     position: relative;
     outline: 3px solid green;
     padding-block: 2rem;
+
+    .left-section {
+      margin: auto;
+      width: var(--page-width);
+    }
   }
-
-
 
   .nav {
     position: absolute;
@@ -60,6 +63,8 @@
       flex-direction: column;
       gap: var(--flex-gap, 1rem);
       padding: 0;
+      width: var(--page-width);
+      margin: auto;
     }
 
     &__item {
@@ -118,11 +123,20 @@
   }
 
   @media (min-width: 768px) {
+
     .header {
       display: grid;
       grid-auto-flow: column;
-      align-items: center;
+      justify-content: space-between;
       padding: 0;
+
+      .left-section {
+        margin-right: auto;
+        width: auto;
+      }
+
+      width: var(--page-width);
+      margin: auto;
     }
 
     .menu-control {
@@ -139,7 +153,7 @@
       &__list {
         flex-direction: row;
         --flex-gap: 2.1rem;
-
+        width: auto;
       }
 
       &__item {

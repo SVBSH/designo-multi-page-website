@@ -1,63 +1,312 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Footer from "../components/Footer.astro";
+  import BaseLayout from "../layouts/BaseLayout.astro";
+  import Button from "../components/Button.astro";
+
+  // static imports
+  import imgHeroPhone from "/assets/home/desktop/image-hero-phone.png"
+  import imgIlustrationPassionate from "/assets/home/desktop/illustration-passionate.svg";
+  import imgIlustrationFriendly from "/assets/home/desktop/illustration-friendly.svg";
+  import imgIlustrationResourceful from "/assets/home/desktop/illustration-resourceful.svg";
+
+
+  import mobileWebDesign from "/assets/home/mobile/image-web-design.jpg";
+  import tabletWebDesign from "/assets/home/tablet/image-web-design.jpg";
+  import desktopWebDesignLarge from "/assets/home/desktop/image-web-design-large.jpg";
+  import desktopWebDesignSmall from "/assets/home/desktop/image-web-design-small.jpg";
+
+  import mobileGraphicDesign from "/assets/home/mobile/image-graphic-design.jpg";
+  import tabletGraphicDesign from "/assets/home/tablet/image-graphic-design.jpg";
+  import desktopGraphicDesign from "/assets/home/desktop/image-graphic-design.jpg";
+
+  import mobileAppDesign from "/assets/home/mobile/image-app-design.jpg";
+  import tabletAppDesign from "/assets/home/tablet/image-app-design.jpg";
+  import desktopAppDesign from "/assets/home/desktop/image-app-design.jpg";
+
 ---
 
 <BaseLayout title="Frontend Mentor | Designo Agency Website Challenge">
-    <h1 class="text-primary-black" style="">Our Company</h1>
-    <h2>Our Company</h2>
-    <h3>Our Company</h3>
-    <p>Our Company</p>
+  <div class="home-page | grid">
 
-    <!-- Locations
-    Contact
-  
-    Award-winning custom designs and digital branding solutions
-  
-    With over 10 years in the industry, we are experienced in creating fully responsive websites, app
-    design,
-    and engaging brand experiences. Find out more about our services.
-  
-    Learn more
-  
-    Web Design
-    View Projects
-  
-    App Design
-    View Projects
-  
-    Graphic Design
-    View Projects
-  
-    Passionate
-    Each project starts with an in-depth brand research to ensure we only create products that serve a
-    purpose. We merge
-    art, design, and technology into exciting new solutions.
-  
-    Resourceful
-    Everything that we do has a strategic purpose. We use an agile approach in all of our projects and
-    value customer
-    collaboration. It guarantees superior results that fulfill our clients’ needs.
-  
-    Friendly
-    We are a group of enthusiastic folks who know how to put people first. Our success depends on our
-    customers, and we
-    strive to give them the best experience a company can provide.
-  
-    Let’s talk about your project
-    Ready to take it to the next level? Contact us today and find out how our expertise can help your
-    business grow.
-    Get in touch
-  
-    Our company
-    Locations
-    Contact
-  
-    Designo Central Office
-    3886 Wellington Street
-    Toronto, Ontario M9C 3J5
-  
-    Contact Us (Central Office)
-    P : +1 253-863-8967
-    M : contact@designo.co -->
+    <div class="hero | bg-primary-peach">
+      <div class="hero__content | flex flex-col">
+        <h1 class="text-primary-white">Award-winning custom designs and digital branding solutions
+        </h1>
+        <p class="text-primary-white">With over 10 years in the industry, we are experienced in
+          creating fully responsive
+          websites, app design, and engaging brand experiences. Find out more about our services.
+        </p>
+        <Button text="Learn more" />
+      </div>
+      <div class="">
+        <img src={imgHeroPhone} alt="cell phone" class="hero__img" width="624" height="913"
+          draggable="false">
+      </div>
+    </div>
+
+    <section class="services | wrapper">
+      <button class="service | font-medium text-uppercase text-primary-white">
+        <picture class="">
+          <source media="(min-width:1400px)" srcset={desktopWebDesignLarge}>
+          <source media="(min-width:768px)" srcset={tabletWebDesign}>
+          <img class="service__background | round-base" src={mobileWebDesign} alt="Flowers"
+            style="width:auto;">
+        </picture>
+        <div class="service__content | flex flex-col">
+          <h2 class="">Web Design</h2>
+          <p class="">View Projects</p>
+        </div>
+      </button>
+
+      <button class="service | font-medium text-uppercase text-primary-white">
+        <picture class="">
+          <source media="(min-width:1400px)" srcset={desktopAppDesign}>
+          <source media="(min-width:768px)" srcset={tabletAppDesign}>
+          <img class="service__background | round-base" src={mobileAppDesign} alt="Flowers"
+            style="width:auto;">
+        </picture>
+
+        <div class="service__content | flex flex-col">
+          <h2 class="">App Design</h2>
+          <p class="">View Projects</p>
+        </div>
+      </button>
+
+      <button class="service | font-medium text-uppercase text-primary-white">
+        <picture class="">
+          <source media="(min-width:1400px)" srcset={desktopGraphicDesign}>
+          <source media="(min-width:768px)" srcset={tabletGraphicDesign}>
+          <img class="service__background | round-base" src={mobileGraphicDesign} alt="Flowers"
+            style="width:auto;">
+        </picture>
+
+        <div class="service__content | flex flex-col">
+          <h2 class="">Graphic Design</h2>
+          <p class="">View Projects</p>
+        </div>
+      </button>
+    </section>
+
+    <section class="characteristics | wrapper">
+      <div class="characteristics__card">
+        <div class="flex flex-col">
+          <h3 class="text-uppercase">Passionate</h3>
+          <p>Each project starts with an in-depth brand research to ensure we only create products
+            that serve a
+            purpose. We merge
+            art, design, and technology into exciting new solutions.
+          </p>
+        </div>
+        <div class="characteristics__img-container"><img class="characteristics__img"
+            src={imgIlustrationPassionate} alt="illustration of passion" draggable="false"></div>
+      </div>
+      <div class="characteristics__card">
+        <div class="flex flex-col">
+          <h3 class="text-uppercase">Resourceful</h3>
+          <p>Everything that we do has a strategic purpose. We use an agile approach in all of our
+            projects and
+            value customer
+            collaboration. It guarantees superior results that fulfill our clients’ needs.
+          </p>
+        </div>
+        <div class="characteristics__img-container"><img class="characteristics__img"
+            src={imgIlustrationResourceful} alt="illustration of resourceful" draggable="false">
+        </div>
+      </div>
+      <div class="characteristics__card">
+        <div class="flex flex-col">
+          <h3 class="text-uppercase">Friendly</h3>
+          <p>We are a group of enthusiastic folks who know how to put people first. Our success
+            depends on our
+            customers, and we
+            strive to give them the best experience a company can provide.
+          </p>
+        </div>
+        <div class="characteristics__img-container"><img class="characteristics__img"
+            src={imgIlustrationFriendly} alt="illustration of friendliness" draggable="false"></div>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
+
+<style lang="scss">
+  .home-page {
+    display: grid;
+    gap: 7rem;
+    margin-bottom: 14rem;
+
+    &>* {
+      // outline: 2px solid red;
+      ;
+    }
+  }
+
+  // hero section
+  .hero {
+    padding-top: 5em;
+    display: grid;
+    text-align: center;
+
+    &__content {
+      padding-inline: .5em;
+      align-items: center;
+      & > p {
+        // max-width: 30ch;
+        margin: auto;
+      }
+    }
+
+    &__img {}
+  }
+
+  // services section
+  .services {
+    display: grid;
+
+    gap: 2rem;
+  }
+
+  .service {
+    position: relative;
+
+    &__background {
+
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+
+    &:where(:focus-within, :hover) &__content::after {
+      opacity: .7;
+
+    }
+
+    &__content {
+      position: absolute;
+      inset: 0;
+      isolation: isolate;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      &::after {
+        border-radius: 10px;
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 700ms ease-out;
+        background-color: var(--color-primary-peach);
+      }
+    }
+  }
+
+  // characteristics of development
+  .characteristics {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    gap: 3rem;
+
+    &__card {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-items: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__img-container {
+      isolation: isolate;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+
+        border-radius: 50%;
+        background: linear-gradient(90deg,
+            rgba(93, 2, 2, 0.0001) 0%,
+            rgba(93, 2, 2, 0.497569) 100%);
+        opacity: 0.2;
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+        mix-blend-mode: normal;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .home-page {
+      width: var(--page-width);
+      margin: auto;
+    }
+
+    .hero {
+      border-radius: var(--component-radius);
+    }
+
+    .characteristics {
+      justify-content: center;
+
+      &__card {
+        flex-direction: row-reverse;
+        gap: 2.5rem;
+        max-width: 600px;
+        text-align: left;
+      }
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .hero {
+      text-align: left;
+
+      &__content {
+        align-items: start;
+      }
+    }
+
+    .services {
+      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      .service {
+
+        min-height: 100%;
+
+        &:nth-of-type(1) {
+          grid-column: 1;
+          grid-row: 1 / -1;
+        }
+
+        &:nth-of-type(2) {
+          grid-column: 2;
+          grid-row: 1;
+          max-height: 300px;
+        }
+
+        &:nth-of-type(3) {
+          grid-column: 2;
+          grid-row: 2;
+          max-height: 300px;
+        }
+      }
+    }
+
+    .characteristics {
+      justify-content: space-between;
+
+      gap: 2rem;
+
+      &__card {
+        flex-direction: column-reverse;
+        gap: 2.5rem;
+        max-width: 350px;
+        text-align: center;
+      }
+    }
+  }
+</style>

@@ -21,7 +21,6 @@
   import mobileAppDesign from "/assets/home/mobile/image-app-design.jpg";
   import tabletAppDesign from "/assets/home/tablet/image-app-design.jpg";
   import desktopAppDesign from "/assets/home/desktop/image-app-design.jpg";
-
 ---
 
 <BaseLayout title="Frontend Mentor | Designo Agency Website Challenge">
@@ -50,7 +49,7 @@
         </picture>
         <div class="service__content | flex flex-col">
           <h2 class="">Web Design</h2>
-          <p class="">View Projects</p>
+          <p class="service__projects">View Projects</p>
         </div>
       </a>
 
@@ -63,7 +62,7 @@
 
         <div class="service__content | flex flex-col">
           <h2 class="">App Design</h2>
-          <p class="">View Projects</p>
+          <p class="service__projects">View Projects</p>
         </div>
       </a>
 
@@ -76,7 +75,7 @@
 
         <div class="service__content | flex flex-col">
           <h2 class="">Graphic Design</h2>
-          <p class="">View Projects</p>
+          <p class="service__projects">View Projects</p>
         </div>
       </a>
     </section>
@@ -158,7 +157,8 @@
 
     &__img {
       transform: translateY(-100px);
-      object-fit: contain;;
+      object-fit: contain;
+      ;
     }
   }
 
@@ -185,7 +185,6 @@
 
     &:where(:focus-within, :hover) &__content::after {
       opacity: .7;
-
     }
 
     &__content {
@@ -207,6 +206,24 @@
         background-color: var(--color-primary-peach);
       }
     }
+
+    &__projects {
+      display: block;
+      display: flex;
+      gap: .5rem;
+      letter-spacing: 3px;
+
+      &::after {
+        display: block;
+        --size: 14px;
+        content: '';
+        margin-block: auto;
+        transform: translateY(-2px);
+        width: var(--size);
+        height: var(--size);
+        background: url("/assets/shared/desktop/icon-right-arrow.svg") center center no-repeat;
+      }
+    }
   }
 
   // characteristics of development
@@ -219,14 +236,16 @@
     &__card {
       display: flex;
       flex-direction: column-reverse;
-      justify-items: center;
       align-items: center;
       text-align: center;
+      margin: auto;
+
     }
 
     &__img-container {
       isolation: isolate;
       position: relative;
+      min-width: 200px;
 
       &::after {
         content: '';
@@ -256,12 +275,9 @@
     }
 
     .characteristics {
-      justify-content: center;
-
       &__card {
         flex-direction: row-reverse;
         gap: 2.5rem;
-        max-width: 600px;
         text-align: left;
       }
     }
@@ -305,8 +321,6 @@
         align-items: start;
       }
     }
-
-    
 
     .characteristics {
       justify-content: space-between;

@@ -12,9 +12,13 @@
 
 	export interface Props {
 		title: string;
+		contactAdvertisement?: boolean
 	}
 
-	const { title } = Astro.props;
+	let { title, contactAdvertisement } = Astro.props;
+	if (contactAdvertisement === undefined) {
+		contactAdvertisement = true;
+	}
 ---
 
 <!DOCTYPE html>
@@ -38,7 +42,7 @@
 <body class="">
 	<Header />
 	<slot />
-	<Footer />
+	<Footer contactAdvertisement={contactAdvertisement}/>
 
 </body>
 

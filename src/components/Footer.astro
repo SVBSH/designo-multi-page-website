@@ -1,4 +1,10 @@
 ---
+  let { contactAdvertisement } = Astro.props;
+  if (contactAdvertisement === undefined) {
+    contactAdvertisement = true;
+  }
+
+  // Assets
   import pageLogoWhite from "/assets/shared/desktop/logo-light.png";
 
   import iconFacebook from "/assets/shared/desktop/icon-facebook.svg";
@@ -15,15 +21,18 @@
 
   <div class="container | wrapper">
 
-    <div class="card | text-primary-white bg-primary-peach">
-      <div class="card__info | grid">
-        <h2 class="card__heading">Let’s talk about your project</h2>
-        <p class="card__text">Ready to take it to the next level? Contact us today and find out how
-          our expertise can
-          help your business grow.</p>
+    {contactAdvertisement &&
+      <div class="card | text-primary-white bg-primary-peach">
+        <div class="card__info | grid">
+          <h2 class="card__heading">Let’s talk about your project</h2>
+          <p class="card__text">Ready to take it to the next level? Contact us today and find out how
+            our expertise can
+            help your business grow.</p>
+        </div>
+        <Button text="Get in touch" class:list={[ 'hello goodbye' , { hello: true, world: true }, new
+          Set([ 'hello' , 'friend' ]) ]} />
       </div>
-      <Button text="Get in touch" class:list={[ 'hello goodbye', { hello: true, world: true }, new Set([ 'hello', 'friend' ]) ]}/>
-    </div>
+    }
 
     <div class="logo-wrapper">
       <img draggable="false" class="logo" src={pageLogoWhite} alt="logo">

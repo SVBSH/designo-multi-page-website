@@ -1,33 +1,42 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import PageSpecialisationHeroSection from "../components/pageSpecialisationHeroSection.astro";
-const pageTitle = "Graphic Design";
-const pageDescription = "We deliver eye-catching branding materials that are tailored to meet your business objectives."
+  import PageSpecialisationLayout from "../layouts/PageSpecialisationLayout.astro";
+
+  const pageTitle = "Graphic Design";
+  const pageDescription = "We deliver eye-catching branding materials that are tailored to meet your business objectives.";
+
+
+  const webPages = [
+    {
+      title: "Tim Brown",
+      description: "A book cover designed for Tim Brown’s new release, ‘Change’",
+      image: {
+        path: "/assets/graphic-design/desktop/image-change.jpg",
+        description: ""
+      },
+      link: ""
+    },
+    {
+      title: "Boxed water",
+      description: "A simple packaging concept made for Boxed Water",
+      image: {
+        path: "/assets/graphic-design/desktop/image-boxed-water.jpg",
+        description: ""
+      },
+      link: ""
+    },
+    {
+      title: "Science!",
+      description: "A poster made in collaboration with the Federal Art Project",
+      image: {
+        path: "/assets/graphic-design/desktop/image-science.jpg",
+        description: ""
+      },
+      link: ""
+    },
+]
 ---  
- <BaseLayout title="Graphic Design">
-  <PageSpecialisationHeroSection pageTitle={pageTitle} description={pageDescription} />
-  
-   Tim Brown
-   A book cover designed for Tim Brown’s new release, ‘Change’
-   Boxed water
-   A simple packaging concept made for Boxed Water
-   Science!
-   A poster made in collaboration with the Federal Art Project
-   App Design
-   View Projects
-   Web Design
-   View Projects
-   Let’s talk about your project
-   Ready to take it to the next level? Contact us today and find out how our expertise can
-   help your business grow.
-   Get in touch
-   Our company
-   Locations
-   Contact
-   Designo Central Office
-   3886 Wellington Street
-   Toronto, Ontario M9C 3J5
-   Contact Us (Central Office)
-   P : +1 253-863-8967
-   M : contact@designo.co
- </BaseLayout>
+<PageSpecialisationLayout 
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  webPages={webPages}
+/>

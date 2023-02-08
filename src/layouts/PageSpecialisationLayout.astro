@@ -1,0 +1,124 @@
+---
+  import BaseLayout from "../layouts/BaseLayout.astro";
+  import PageSpecialisationHeroSection from "../components/pageSpecialisationHeroSection.astro";
+  const { pageTitle, pageDescription, webPages } = Astro.props;
+
+---
+
+<BaseLayout title={pageTitle}>
+
+  <PageSpecialisationHeroSection pageTitle={pageTitle} description={pageDescription} />
+  <div class="wrapper">
+    {(webPages.length > 0) &&
+    <ul class="web-page-list">
+      {webPages.map(webpage =>
+      <>
+        <li class="web-page__item">
+          <a href={webpage.link} class="web-page__link">
+            <figure class="web-page__figure">
+              <img class="web-page__img" src={webpage.image.path} alt={webpage.image.description}
+                draggable="false" />
+              <figcaption class="web-page__info | flex flex-col text-center">
+                <h3 class="text-uppercase">{webpage.title}</h3>
+                <p class="web-page__description">{webpage.description}</p>
+              </figcaption>
+            </figure>
+          </a>
+        </li>
+      </>)}
+    </ul>}
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  .web-page-list {
+    // display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    gap: 3rem 2rem;
+    margin-block: 3rem;
+  }
+
+  .web-page {
+    --radius-size: 12px;
+
+    &__link {
+      display: block;
+      text-decoration: none;
+    }
+
+
+
+    &__figure {
+      display: grid;
+      grid-row: 1;
+    }
+
+    &__img {
+      --radius-size: 12px;
+      display: block;
+      height: 100%;
+      max-height: 328px;
+      object-fit: cover;
+      min-width: 350px;
+      border-top-left-radius: var(--radius-size);
+      border-top-right-radius: var(--radius-size);
+    }
+
+    &__info {
+      --radius-size: 12px;
+
+      padding-block: 3rem;
+      padding-inline: 2rem;
+      grid-row: 2;
+
+      background-color: hsla(14, 76%, 97%, 1);
+      border-bottom-left-radius: var(--radius-size);
+      border-bottom-right-radius: var(--radius-size);
+
+      --transition-duration: 100ms;
+      transition:
+        background-color var(--transition-duration) ease-out,
+        color var(--transition-duration) ease-out;
+
+      &>h3 {
+        color: var(--color-primary-peach);
+      }
+
+      &>p {
+        color: var(--color-primary-black);
+        max-width: 30ch;
+        margin: auto;
+      }
+    }
+
+
+    //  Hover & Focus effects
+    &__link:where(:focus-within, :hover) {
+      outline: none;
+    }
+
+    &__item:where(:focus-within, :hover) &__info {
+      background-color: var(--color-primary-peach);
+
+      &>* {
+        color: var(--color-primary-white);
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .web-page-list {
+      justify-content: space-evenly;
+
+    }
+  }
+
+  @media (min-width: 1500px) {
+    .web-page-list {
+      justify-content: space-evenly;
+    }
+  }
+</style>

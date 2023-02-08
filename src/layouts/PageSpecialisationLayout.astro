@@ -53,16 +53,13 @@
 
     &__figure {
       display: grid;
-      grid-row: 1;
+      grid-auto-flow: row;
     }
 
     &__img {
       --radius-size: 12px;
-      display: block;
-      height: 100%;
       max-height: 328px;
       object-fit: cover;
-      min-width: 350px;
       border-top-left-radius: var(--radius-size);
       border-top-right-radius: var(--radius-size);
     }
@@ -72,7 +69,6 @@
 
       padding-block: 3rem;
       padding-inline: 2rem;
-      grid-row: 2;
 
       background-color: hsla(14, 76%, 97%, 1);
       border-bottom-left-radius: var(--radius-size);
@@ -94,7 +90,6 @@
       }
     }
 
-
     //  Hover & Focus effects
     &__link:where(:focus-within, :hover) {
       outline: none;
@@ -110,15 +105,62 @@
   }
 
   @media (min-width: 768px) {
-    .web-page-list {
-      justify-content: space-evenly;
 
+    .web-page {
+
+      &-list {
+        justify-content: space-evenly;
+
+      }
+
+      &__figure {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      &__img {
+        grid-column: 1;
+        grid-row: 1;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: var(--radius-size);
+
+      }
+
+      &__info {
+        grid-column: 2;
+        grid-row: 1;
+
+        border-top-right-radius: var(--radius-size);
+        border-bottom-left-radius: 0;
+      }
     }
   }
 
-  @media (min-width: 1500px) {
-    .web-page-list {
-      justify-content: space-evenly;
+  @media (min-width: 1400px) {
+
+    .web-page {
+      &-list {
+        justify-content: space-evenly;
+      }
+
+      &__figure {
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr auto;
+      }
+
+      &__img {
+        grid-column: 1;
+        grid-row: 1;
+        border-top-right-radius: var(--radius-size);
+        border-bottom-left-radius: 0;
+
+      }
+
+      &__info {
+        grid-column: 1;
+        grid-row: 2;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: var(--radius-size);
+      }
     }
   }
 </style>

@@ -1,0 +1,49 @@
+---
+  const { pageTitle, description } = Astro.props;
+---
+
+<div class="hero | bg-primary-peach text-center round-base">
+  <div class="hero-inside-wrapper flex flex-col">
+    <h1 class="hero__heading | text-primary-white">{pageTitle}</h1>
+    <p class="hero__text | text-primary-white">{description}</p>
+  </div>
+</div>
+
+
+<style lang="scss">
+  .hero {
+    justify-content: center;
+    padding-block: clamp(4rem, 4rem + 2vw, 5rem);
+    background-image: url("/assets/web-design/desktop/bg-pattern-intro-web.svg");
+
+    // background-size: contain;
+    background-position: top right;
+    background-repeat: no-repeat;
+
+    &-inside-wrapper {
+      width: var(--page-width);
+      margin: auto;
+      gap: 1.2em;
+    }
+
+    &__text {
+      max-width: 40ch;
+      margin: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      width: var(--page-width);
+      margin: auto;
+      background-size: cover;
+      background-position: center;
+
+
+      &-inside-wrapper {
+        width: auto;
+      }
+
+    }
+  }
+</style>

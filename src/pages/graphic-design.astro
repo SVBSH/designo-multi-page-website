@@ -1,13 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageSpecialisationHeroSection from "../components/pageSpecialisationHeroSection.astro";
+const pageTitle = "Graphic Design";
+const pageDescription = "We deliver eye-catching branding materials that are tailored to meet your business objectives."
 ---  
  <BaseLayout title="Graphic Design">
-   
-   Our Company
-   Locations
-   Contact
-   Graphic design
-   We deliver eye-catching branding materials that are tailored to meet your business objectives.
+  <PageSpecialisationHeroSection pageTitle={pageTitle} description={pageDescription} />
+  
    Tim Brown
    A book cover designed for Tim Brown’s new release, ‘Change’
    Boxed water

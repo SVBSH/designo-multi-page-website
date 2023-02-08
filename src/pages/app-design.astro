@@ -1,13 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageSpecialisationHeroSection from "../components/pageSpecialisationHeroSection.astro";
+const pageTitle="App Design";
+const pageDescription="Our mobile designs bring intuitive digital solutions to your customers right at their fingertips."
+
 ---
   
-  <BaseLayout title="App Design">
-    Our Company
-    Locations
-    Contact
-    App design
-    Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.
+  <BaseLayout title={pageTitle}>
+
+  <PageSpecialisationHeroSection pageTitle={pageTitle} description={pageDescription} />
+    
     Airfilter
     Solving the problem of poor indoor air quality by filtering the air
     Eyecam

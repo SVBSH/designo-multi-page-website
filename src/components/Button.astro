@@ -8,15 +8,30 @@
 
 <style lang="scss">
   .btn {
+    display: block;
     font-size: var(--font-size-sm);
     letter-spacing: 2px;
     padding: 1.25em 1.5em;
+  }
+
+  .btn[data-type="light"] {
     color: var(--color-primary-black);
     background-color: var(--color-primary-white);
     transition: background-color 300ms ease-out;
 
+
     &:where(:hover, :focus-within) {
       background-color: var(--color-secondary-light-peach);
+    }
+  }
+
+  .btn[data-type="peach"] {
+    color: var(--color-primary-white);
+    background-color: var(--color-primary-peach);
+    transition: opacity 300ms ease-out;
+
+    &:where(:hover, :focus-within) {
+      opacity: .7;
     }
   }
 </style>

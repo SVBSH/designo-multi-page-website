@@ -1,0 +1,53 @@
+---
+  const {
+    cityName,
+    img,
+  } = Astro.props;
+---
+
+<li class="location | grid">
+  <div class="location__img-wrapper"><img src={img.imgPath} class="location__img"
+      alt={img.imgDescription} draggable="false" /></div>
+  <div class="flex flex-col">
+    <p class="location__name | text-center text-uppercase">{cityName}</p>
+    <a data-type="peach" href="/locations" class="location__link | btn | text-uppercase">See
+      location</a>
+  </div>
+</li>
+
+<style lang="scss">
+  .location {
+    max-width: 350px;
+
+    &__name {
+      letter-spacing: 5px;
+    }
+
+    &__img {
+      max-width: 202px;
+    }
+
+    &__img-wrapper {
+      position: relative;
+      isolation: isolate;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+
+        border-radius: 50%;
+        background: linear-gradient(90deg, rgba(93, 2, 2, 0.0001) 0%, rgba(93, 2, 2, 0.497569) 100%);
+        mix-blend-mode: normal;
+        opacity: 0.2;
+        transform: matrix(0, -1, -1, 0, 0, 0);
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      padding: 1em 0.5em;
+    }
+  }
+</style>

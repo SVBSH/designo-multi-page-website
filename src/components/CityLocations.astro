@@ -1,0 +1,52 @@
+---
+  import CityLocation from "./CityLocation.astro";
+  const locations = [
+        {
+            cityName: "Canada",
+            img: {
+                imgPath: "/assets/shared/desktop/illustration-canada.svg",
+                imgDescription: ""
+            }
+        },
+        {
+            cityName: "Australia",
+            img: {
+                imgPath: "/assets/shared/desktop/illustration-australia.svg",
+                imgDescription: ""
+            }
+        },
+        {
+            cityName: "United Kingdom",
+            img: {
+                imgPath: "/assets/shared/desktop/illustration-united-kingdom.svg",
+                imgDescription: ""
+            }
+        }
+    ]
+
+---
+
+<ul class="city_location-wrapper">
+  {locations.map(location => <>
+    <CityLocation cityName={location.cityName} img={location.img} />
+  </>)
+  }
+</ul>
+
+<style lang="scss">
+  .city_location-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+
+    justify-items: center;
+    justify-content: space-around;
+
+  }
+
+  @media (min-width: 698px) {
+    .city_location-wrapper {
+      gap: 0rem;
+    }
+  }
+</style>

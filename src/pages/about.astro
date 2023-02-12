@@ -1,6 +1,14 @@
 ---
+
+
   import BaseLayout from "../layouts/BaseLayout.astro";
-  import CityLocations from "../components/CityLocations.astro";
+  import CityLocations from "@components/CityLocations.astro";
+
+
+  import imgMobile from "/assets/about/mobile/image-about-hero.jpg";
+  import imgTablet from "/assets/about/tablet/image-about-hero.jpg";
+  import imgDesktop from "/assets/about/desktop/image-about-hero.jpg";
+
 ---
 
 <BaseLayout title="About">
@@ -16,9 +24,9 @@
         </p>
       </div>
       <picture class="hero__img-wrapper">
-        <source media="(min-width:1000px)" srcset="/assets/about/desktop/image-about-hero.jpg">
-        <source media="(min-width:468px)" srcset="/assets/about/tablet/image-about-hero.jpg">
-        <img class="hero__img" src="/assets/about/mobile/image-about-hero.jpg" alt=""
+        <source media="(min-width:1000px)" width="476px" height="268px" srcset={imgDesktop} >
+        <source media="(min-width:468px)" width="689px" height="388px" srcset={imgTablet} >
+        <img class="hero__img" width="375px" height="211px" src={imgMobile}  alt=""
           draggable="false">
       </picture>
     </div>

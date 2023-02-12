@@ -1,10 +1,8 @@
 ---
   import pageLogoDark from "/assets/shared/desktop/logo-dark.png";
   import pageLogoWhite from "/assets/shared/desktop/logo-dark.png";
-
   import menuIconOpen from "/assets/shared/mobile/icon-hamburger.svg";
   import menuIconClose from "/assets/shared/mobile/icon-close.svg";
-
   const pageLogo = {
     white: pageLogoWhite,
     dark: pageLogoDark,
@@ -35,20 +33,17 @@
   .hide {
     display: none;
   }
-
   .header {
     // outline: 3px solid green;
     --header-bottom-margin: 2rem;
     position: relative;
     padding-block: 2rem;
     // margin-bottom: var(--header-bottom-margin);
-
     .left-section {
       margin: auto;
       width: var(--page-width);
     }
   }
-
   .nav {
     // outline: 1px solid red;
     position: absolute;
@@ -57,10 +52,8 @@
     right: 0;
     z-index: 3;
     transform: translateY(-200%);
-
     padding-block: 2.5rem;
     background-color: var(--color-primary-black);
-
     &__list {
       display: flex;
       flex-direction: column;
@@ -69,109 +62,86 @@
       width: var(--page-width);
       margin: auto;
     }
-
     &__item {
       position: relative;
       list-style: none;
       font-size: 1.5rem;
     }
-
     &__link {
       color: var(--color-primary-white);
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 3px;
-
       &:focus {
         outline: none;
       }
     }
   }
-
   .menu-control {
     justify-self: end;
-
     &>*[data-open="false"] {
       display: none;
     }
   }
-
   .tilt-in-top-1 {
     --duration: 400ms;
     -webkit-animation: tilt-in-top-1 var(--duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: tilt-in-top-1 var(--duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
-
   @-webkit-keyframes tilt-in-top-1 {
     0% {
       -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
       transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
       opacity: 0;
     }
-
     100% {
       -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
       transform: rotateY(0deg) translateY(0) skewY(0deg);
       opacity: 1;
     }
   }
-
   @keyframes tilt-in-top-1 {
     0% {
       -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
       transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
       opacity: 0;
     }
-
     100% {
       -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
       transform: rotateY(0deg) translateY(0) skewY(0deg);
       opacity: 1;
     }
   }
-
   @media (min-width: 768px) {
-
     .header {
       display: grid;
       grid-auto-flow: column;
       justify-content: space-between;
       padding: 0;
       width: var(--page-width);
-
       // reset previous margin
       margin: auto;
       margin-bottom: var(--header-bottom-margin);
-
-
       .left-section {
         margin-right: auto;
         width: auto;
       }
-
     }
-
     .menu-control {
       display: none;
     }
-
     .nav {
       position: static;
       justify-self: end;
-
       background-color: var(--color-primary-white);
       transform: translateY(0%);
-
       &__list {
         flex-direction: row;
         --flex-gap: 2.1rem;
         width: auto;
       }
-
       &__item {
         font-size: var(--font-size-sm);
-
-
         &::after {
           content: '';
           position: absolute;
@@ -184,30 +154,24 @@
           transition: width 100ms ease-out;
           background-color: var(--color-secondary-dark-grey);
         }
-
         &:where(:hover, :focus-within)::after {
           width: 100%;
         }
       }
-
       &__link {
         color: var(--color-primary-black);
       }
     }
-
   }
 </style>
 
 <script>
   const menuOpen = document.querySelector('.menu-open');
   const menuClose = document.querySelector('.menu-close');
-
   const nav = document.querySelector('.nav');
-
   document.querySelector('.menu-control').addEventListener('click', (e) => {
     menuOpen.classList.toggle('hide');
     menuClose.classList.toggle('hide');
-
     const l = nav.classList.contains('tilt-in-top-1');
     if (l === true) {
       console.log('hellop')

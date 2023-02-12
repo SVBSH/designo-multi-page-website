@@ -1,26 +1,60 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+   import BaseLayout from "../layouts/BaseLayout.astro";
 --- 
- <BaseLayout title="Locations">
-    Canada
-    Designo Central Office
-    3886 Wellington Street
-    Toronto, Ontario M9C 3J5
-    Contact
-    P : +1 253-863-8967
-    M : contact@designo.co
-    Australia
-    Designo AU Office
-    19 Balonne Street
-    New South Wales 2443
-    Contact
-    P : (02) 6720 9092
-    M : contact@designo.au
-    United Kingdom
-    Designo UK Office
-    13 Colorado Way
-    Rhyd-y-fro SA8 9GA
-    Contact
-    P : 078 3115 1400
-    M : contact@designo.uk
- </BaseLayout>
+
+<BaseLayout title="Locations">
+
+   <div class="location-wrapper">
+      <div class="location-nfo">
+         <h2 class="text-primary-peach">Canada</h2>
+         <div class="office-info">
+            <p class="font-medium">Designo Central Office</p>
+            <p class="street">3886 Wellington Street</p>
+            <p class="city">Toronto, Ontario M9C 3J5</p>
+         </div>
+         <div class="office-contact">
+            <p class="font-medium">Contact</p>
+            <p class="number">P : +1 253-863-8967</p>
+            <p class="email">M : contact@designo.co</p>
+         </div>
+      </div>
+      <div class="location-map">
+      </div>
+   </div>
+
+   <div class="location-wrapper">
+      <div class="location-nfo">
+         <h2 class="text-primary-peach">Australia</h2>
+         <div class="office-info">
+            <p class="font-medium">Designo AU Office</p>
+            <p class="street">19 Balonne Street</p>
+            <p class="city">New South Wales 2443</p>
+         </div>
+         <div class="office-contact">
+            <p class="font-medium">Contact</p>
+            <p class="number">P : (02) 6720 9092</p>
+            <p class="email">M : contact@designo.au</p>
+         </div>
+      </div>
+      <div class="location-map">
+      </div>
+   </div>
+
+   <div class="location-wrapper">
+      <div class="location-nfo">
+         <h2 class="text-primary-peach">United Kingdom</h2>
+         <div class="office-info">
+            <p class="font-medium">Designo UK Office</p>
+            <p class="street">13 Colorado Way</p>
+            <p class="city">Rhyd-y-fro SA8 9GA</p>
+         </div>
+         <div class="office-contact">
+            <p class="font-medium">Contact</p>
+            <p class="number">P : 078 3115 1400</p>
+            <p class="email">M : contact@designo.uk</p>
+         </div>
+      </div>
+      <div class="location-map">
+      </div>
+   </div>
+</BaseLayout>

@@ -26,7 +26,11 @@ h3 {
   line-height: 26px;
 }
 
-li,
+li {
+  font-size: var(--font-size-sm);
+  line-height: 26px;
+}
+
 p {
   font-size: var(--font-size-sm);
   line-height: 26px;
@@ -35,4 +39,5 @@ p {
 
 .logo {
   max-width: 202px;
+  height: auto;
 }

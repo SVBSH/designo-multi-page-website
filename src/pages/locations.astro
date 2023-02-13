@@ -1,60 +1,202 @@
 ---
-   import BaseLayout from "../layouts/BaseLayout.astro";
+  import BaseLayout from "../layouts/BaseLayout.astro";
 --- 
 
 <BaseLayout title="Locations">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" slot="head" />
 
-   <div class="location-wrapper">
-      <div class="location-nfo">
-         <h2 class="text-primary-peach">Canada</h2>
-         <div class="office-info">
-            <p class="font-medium">Designo Central Office</p>
-            <p class="street">3886 Wellington Street</p>
-            <p class="city">Toronto, Ontario M9C 3J5</p>
-         </div>
-         <div class="office-contact">
-            <p class="font-medium">Contact</p>
-            <p class="number">P : +1 253-863-8967</p>
-            <p class="email">M : contact@designo.co</p>
-         </div>
+  <div class="location-wrapper">
+    <div class="location" data-row="row">
+      <div class="location__info">
+        <h2 class="location__country | text-primary-peach">Canada</h2>
+        <div class="office-info">
+          <p class="font-bold">Designo Central Office</p>
+          <p class="street">3886 Wellington Street</p>
+          <p class="city">Toronto, Ontario M9C 3J5</p>
+        </div>
+        <div class="office-contact">
+          <p class="font-bold">Contact</p>
+          <p class="number">P : +1 253-863-8967</p>
+          <p class="email">M : contact@designo.co</p>
+        </div>
       </div>
-      <div class="location-map">
+      <div class="location-map" id="loc-1">
       </div>
-   </div>
+    </div>
 
-   <div class="location-wrapper">
-      <div class="location-nfo">
-         <h2 class="text-primary-peach">Australia</h2>
-         <div class="office-info">
-            <p class="font-medium">Designo AU Office</p>
-            <p class="street">19 Balonne Street</p>
-            <p class="city">New South Wales 2443</p>
-         </div>
-         <div class="office-contact">
-            <p class="font-medium">Contact</p>
-            <p class="number">P : (02) 6720 9092</p>
-            <p class="email">M : contact@designo.au</p>
-         </div>
+    <div class="location" data-row="row-reverse">
+      <div class="location__info">
+        <h2 class="location__country | text-primary-peach">Australia</h2>
+        <div class="office-info">
+          <p class="font-bold">Designo AU Office</p>
+          <p class="street">19 Balonne Street</p>
+          <p class="city">New South Wales 2443</p>
+        </div>
+        <div class="office-contact">
+          <p class="font-bold">Contact</p>
+          <p class="number">P : (02) 6720 9092</p>
+          <p class="email">M : contact@designo.au</p>
+        </div>
       </div>
-      <div class="location-map">
+      <div class="location-map" id="loc-2">
       </div>
-   </div>
+    </div>
 
-   <div class="location-wrapper">
-      <div class="location-nfo">
-         <h2 class="text-primary-peach">United Kingdom</h2>
-         <div class="office-info">
-            <p class="font-medium">Designo UK Office</p>
-            <p class="street">13 Colorado Way</p>
-            <p class="city">Rhyd-y-fro SA8 9GA</p>
-         </div>
-         <div class="office-contact">
-            <p class="font-medium">Contact</p>
-            <p class="number">P : 078 3115 1400</p>
-            <p class="email">M : contact@designo.uk</p>
-         </div>
+    <div class="location" data-row="row">
+      <div class="location__info">
+        <h2 class="location__country | text-primary-peach">United Kingdom</h2>
+        <div class="office-info">
+          <p class="font-bold">Designo UK Office</p>
+          <p class="street">13 Colorado Way</p>
+          <p class="city">Rhyd-y-fro SA8 9GA</p>
+        </div>
+        <div class="office-contact">
+          <p class="font-bold">Contact</p>
+          <p class="number">P : 078 3115 1400</p>
+          <p class="email">M : contact@designo.uk</p>
+        </div>
       </div>
-      <div class="location-map">
+      <div class="location-map" id="loc-3">
       </div>
-   </div>
+    </div>
+  </div>
 </BaseLayout>
+
+<style lang="scss">
+  .location-wrapper {
+    display: grid;
+    gap: 2.5rem
+  }
+
+  .location {
+    display: grid;
+    grid-auto-flow: row;
+
+    &__info {
+      grid-row: 2;
+      display: grid;
+      justify-content: center;
+      gap: 1rem;
+      text-align: center;
+
+      padding-block: 5rem;
+      padding-inline: 3rem;
+      background-color: var(--c-1);
+    }
+
+  }
+
+  .location-map {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  @media (min-width: 738px) {
+    .location-wrapper {
+      width: var(--page-width);
+      margin: auto;
+    }
+
+
+    .location {
+      gap: 2rem;
+
+      &__info {
+        grid-row: 2;
+        border-radius: var(--component-radius);
+        justify-content: start;
+        text-align: left;
+        gap: 2rem 7rem;
+        padding-inline: 5rem;
+      }
+
+      &__country {
+        grid-row: 1;
+        grid-column: 1;
+      }
+
+      .office-info {
+        grid-row: 2;
+        grid-column: 1;
+      }
+
+      .office-contact {
+        grid-row: 2;
+        grid-column: 2;
+      }
+
+      &-map {
+        border-radius: var(--component-radius);
+        width: 100%;
+        aspect-ratio: 1/2;
+        max-height: 326px;
+      }
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .location {
+
+      &__info {
+        grid-row: 1;
+      }
+
+      &-map {
+        grid-column: 2;
+        max-height: auto;
+        height: 100%;
+        aspect-ratio: 1/1;
+      }
+
+      &[data-row="row"] {
+        grid-template-columns: 2fr minmax(300px, 1fr);
+      }
+
+      &[data-row="row"] &__info {
+        grid-column: 1;
+      }
+
+      &[data-row="row"] &-map {
+        grid-column: 2;
+      }
+
+      // reverso column
+      &[data-row="row-reverse"] {
+        grid-template-columns: minmax(300px, 1fr) 2fr;
+      }
+
+      &[data-row="row-reverse"] &__info {
+        grid-column: 2;
+      }
+
+      &[data-row="row-reverse"] &-map {
+        grid-column: 1;
+      }
+    }
+  }
+</style>
+
+<script is:inline src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+<script>
+  var map_1 = L.map('loc-1').setView([43.712450, -79.246783], 13);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map_1);
+
+  var map_2 = L.map('loc-2').setView([43.712450, -79.246783], 13);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map_2);
+
+  var map_3 = L.map('loc-3').setView([43.712450, -79.246783], 13);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map_3);
+
+</script>

@@ -83,8 +83,11 @@
       padding-block: 5rem;
       padding-inline: 3rem;
       background-color: var(--c-1);
-    }
 
+      background-image: url("/assets/shared/desktop/bg-pattern-three-circles.svg");
+      background-position: top left;
+      background-repeat: no-repeat;
+    }
   }
 
   .location-map {
@@ -92,7 +95,7 @@
     aspect-ratio: 1/1;
   }
 
-  @media (min-width: 738px) {
+  @media (min-width: 638px) {
     .location-wrapper {
       width: var(--page-width);
       margin: auto;
@@ -109,6 +112,8 @@
         text-align: left;
         gap: 2rem 7rem;
         padding-inline: 5rem;
+        background-image: url("/assets/shared/desktop/bg-pattern-two-circles.svg");
+        background-position: bottom left;
       }
 
       &__country {
@@ -145,7 +150,6 @@
       &-map {
         grid-column: 2;
         max-height: auto;
-        height: 100%;
         aspect-ratio: 1/1;
       }
 
@@ -187,7 +191,7 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map_1);
 
-  var map_2 = L.map('loc-2').setView([43.712450, -79.246783], 13);
+  var map_2 = L.map('loc-2').setView([-33.108171696928025, 151.48939430838414], 11);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'

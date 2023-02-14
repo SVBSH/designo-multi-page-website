@@ -1,20 +1,139 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+  import BaseLayout from "../layouts/BaseLayout.astro";
+  import CityLocations from "@components/CityLocations.astro";;
 ---
-  <BaseLayout title="Contact Us" contactAdvertisement={false}>
-    Contact us
-    Ready to take it to the next level? Let’s talk about your project or idea and find out how
-    we can help your business grow. If you are looking for unique digital experiences that’s
-    relatable to your users, drop us a line.
-    Name
-    Email address
-    Phone
-    Your message
-    Submit
-    Canada
-    See location
-    Australia
-    See location
-    United Kingdom
-    See location
-  </BaseLayout>
+
+<BaseLayout title="Contact Us" contactAdvertisement={false}>
+
+  <div class="page-wrapper">
+    <div class="content | bg-primary-peach text-primary-white">
+      <div class="hero | flex flex-col">
+        <h1>Contact us</h1>
+        <p>Ready to take it to the next level? Let’s talk about your project or idea and find out
+          how
+          we can help your business grow. If you are looking for unique digital experiences that’s
+          relatable to your users, drop us a line.</p>
+      </div>
+      <form method="POST" action="" class="contact-form | flex flex-col">
+        <input type="text" id="name"
+          class="contact-form__input | block text-primary-white font-medium" placeholder="Name"
+          required title="This is an error message" />
+        <input type="text" id="email"
+          class="contact-form__input | block text-primary-white font-medium"
+          placeholder="Email address" required type="email" />
+        <input type="text" id="phone"
+          class="contact-form__input | block text-primary-white font-medium" placeholder="Phone"
+          required type="tel" />
+        <input type="text" id="message"
+          class="contact-form__input | block text-primary-white font-medium"
+          placeholder="Your message" required />
+        <button type="submit" title="Submit"
+          class="contact-form__submit |  btn text-uppercase font-medium" data-type="light"
+          formnovalidate>Submit</button>
+      </form>
+      <!-- Submit -->
+    </div>
+    <div id="err"></div>
+    <CityLocations />
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+  .page-wrapper {
+    margin-bottom: 4rem;
+  }
+
+  .contact-form__submit {
+    padding-inline: 3rem;
+    padding-block: .95em;
+    align-self: center;
+  }
+
+  .contact-form__input {
+    background-color: inherit;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    --border-bottom-size: 2.6px;
+    box-shadow: 0 var(--border-bottom-size) 2px -2px var(--color-primary-white);
+    padding-block: .4em;
+    padding-left: .5em;
+    font-size: var(--font-size-sm);
+    width: 100%;
+
+    &:where(:active, :focus-within) {
+      --border-bottom-size: 4px;
+    }
+
+    &::placeholder {
+      color: var(--color-secondary-light-grey);
+    }
+
+    // &:focus:invalid {
+    //   outline: 1px solid red;
+    // }
+  }
+
+  .hero {
+    text-align: center;
+
+    &>h1 {
+      margin-bottom: 0.1em;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    gap: 5rem;
+    padding-block: 5rem;
+    padding-inline: 4rem;
+  }
+
+  .content {
+    // background-color: ;
+  }
+
+  @media (min-width: 768px) {
+
+    .hero {
+      text-align: left;
+      justify-content: center;
+    }
+
+    .contact-form__submit {
+      align-self: end;
+    }
+
+    .content {
+      width: var(--page-width);
+      margin: auto;
+      flex-direction: row;
+    }
+
+    .contact-form {
+      margin-left: auto;
+      min-width: clamp(150px, 250px + 10vw, 300px);
+      margin-right: 2em;
+    }
+  }
+</style>
+
+<script>
+  const submit = document.querySelector("button");
+  console.log(submit);
+  submit.addEventListener("click", (event) => {
+    const buttons = document.querySelectorAll('.contact-form__input');
+
+    buttons.forEach((button) => {
+      console.log(button);
+    });
+    event.preventDefault();
+
+  })
+
+
+
+</script>

@@ -61,6 +61,10 @@
   cursor: pointer;
 }
 
+.block {
+  display: block;
+}
+
 .btn {
   display: block;
   font-size: var(--font-size-sm);
@@ -68,10 +72,12 @@
   padding: 1.25em 1.5em;
   border-radius: var(--component-radius);
   text-align: center;
+  color: var(--btn-color, black);
+  background: var(--btn-bg, white);
 
-  &[data-type="light"] {
-    color: var(--color-primary-black);
-    background-color: var(--color-primary-white);
+  &:where([data-type="light"]) {
+    --btn-color: var(--color-primary-black);
+    --btn-bg: var(--color-primary-white);
     transition: background-color 300ms ease-out;
 
 
@@ -80,7 +86,7 @@
     }
   }
 
-  &[data-type="peach"] {
+  &:where([data-type="peach"]) {
     color: var(--color-primary-white);
     background-color: var(--color-primary-peach);
     transition: opacity 300ms ease-out;

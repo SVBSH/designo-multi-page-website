@@ -21,9 +21,9 @@
   </div>
   <nav class="nav nav--primary">
     <ul class="nav__list">
-      <li class="nav__item"><a href="/about/" class="nav__link">Our Company</a></li>
-      <li class="nav__item"><a href="/locations/" class="nav__link">Locations</a></li>
-      <li class="nav__item"><a href="/contact/" class="nav__link">Contact</a></li>
+      <li class="nav-item nav__item"><a href="/about/" class="nav__link">Our Company</a></li>
+      <li class="nav-item nav__item"><a href="/locations/" class="nav__link">Locations</a></li>
+      <li class="nav-item nav__item"><a href="/contact/" class="nav__link">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -33,19 +33,21 @@
   .hide {
     display: none;
   }
+
   .header {
     // outline: 3px solid green;
     --header-bottom-margin: 2rem;
     position: relative;
     padding-block: 2rem;
+
     // margin-bottom: var(--header-bottom-margin);
     .left-section {
       margin: auto;
       width: var(--page-width);
     }
   }
+
   .nav {
-    // outline: 1px solid red;
     position: absolute;
     top: 100%;
     left: 0;
@@ -54,6 +56,7 @@
     transform: translateY(-200%);
     padding-block: 2.5rem;
     background-color: var(--color-primary-black);
+
     &__list {
       display: flex;
       flex-direction: column;
@@ -62,56 +65,66 @@
       width: var(--page-width);
       margin: auto;
     }
+
     &__item {
-      position: relative;
       list-style: none;
       font-size: 1.5rem;
     }
+
     &__link {
       color: var(--color-primary-white);
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 3px;
+
       &:focus {
         outline: none;
       }
     }
   }
+
   .menu-control {
     justify-self: end;
+
     &>*[data-open="false"] {
       display: none;
     }
   }
+
   .tilt-in-top-1 {
     --duration: 400ms;
     -webkit-animation: tilt-in-top-1 var(--duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     animation: tilt-in-top-1 var(--duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
+
   @-webkit-keyframes tilt-in-top-1 {
     0% {
       -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
       transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
       opacity: 0;
     }
+
     100% {
       -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
       transform: rotateY(0deg) translateY(0) skewY(0deg);
       opacity: 1;
     }
   }
+
   @keyframes tilt-in-top-1 {
     0% {
       -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
       transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
       opacity: 0;
     }
+
     100% {
       -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
       transform: rotateY(0deg) translateY(0) skewY(0deg);
       opacity: 1;
     }
   }
+
   @media (min-width: 768px) {
     .header {
       display: grid;
@@ -122,42 +135,35 @@
       width: var(--page-width);
       // reset previous margin
       margin: auto;
+
       .left-section {
         margin-right: auto;
         width: auto;
       }
     }
+
     .menu-control {
       display: none;
     }
+
     .nav {
       position: static;
+      background-color: inherit;
       justify-self: end;
-      background-color: var(--color-primary-white);
-      transform: translateY(0%);
+      transform: initial;
+
       &__list {
-        flex-direction: row;
         --flex-gap: 2.1rem;
+        --nav-border-bottom-color: var(--color-secondary-dark-grey);
+        
+        flex-direction: row;
         width: auto;
       }
+
       &__item {
         font-size: var(--font-size-sm);
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 2px;
-          width: 0%;
-          margin: auto;
-          transition: width 100ms ease-out;
-          background-color: var(--color-secondary-dark-grey);
-        }
-        &:where(:hover, :focus-within)::after {
-          width: 100%;
-        }
       }
+
       &__link {
         color: var(--color-primary-black);
       }
@@ -169,6 +175,7 @@
   const menuOpen = document.querySelector('.menu-open');
   const menuClose = document.querySelector('.menu-close');
   const nav = document.querySelector('.nav');
+  
   document.querySelector('.menu-control').addEventListener('click', (e) => {
     menuOpen.classList.toggle('hide');
     menuClose.classList.toggle('hide');

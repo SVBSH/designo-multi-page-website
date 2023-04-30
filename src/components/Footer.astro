@@ -32,13 +32,14 @@
     }
 
     <div class="logo-wrapper">
-      <img draggable="false" class="logo" width="404px" height="227px" src={pageLogoWhite} alt="logo">
+      <img draggable="false" class="logo" width="404px" height="227px" src={pageLogoWhite}
+        alt="logo">
     </div>
     <nav class="nav nav--secondary">
       <ul class="flex flex-col">
-        <li class=""><a href="/about/" class="nav__link">Our Company</a></li>
-        <li class=""><a href="/locations/" class="nav__link">Locations</a></li>
-        <li class=""><a href="/contact/" class="nav__link">Contact</a></li>
+        <li class="nav-item nav__item"><a href="/about/" class="nav__link">Our Company</a></li>
+        <li class="nav-item nav__item"><a href="/locations/" class="nav__link">Locations</a></li>
+        <li class="nav-item nav__item"><a href="/contact/" class="nav__link">Contact</a></li>
       </ul>
     </nav>
     <ul class="contact-list | flex flex-col" style="--gap: .4rem;">
@@ -147,6 +148,7 @@
   }
 
   .nav {
+    --nav-border-bottom-color: transparent;
     grid-area: navigation;
 
     &__link {
@@ -200,19 +202,17 @@
 
     .nav {
       justify-self: end;
-    }
+      --nav-border-bottom-color: var(--color-primary-white);
 
-    .nav>ul {
-      flex-direction: row;
-      gap: 2rem;
-    }
+      &>ul {
+        flex-direction: row;
+        gap: 2rem;
+      }
 
-    .socials {
-      align-self: end;
-    }
+      & .contact-list {
+        justify-self: start;
+      }
 
-    .contact-list {
-      justify-self: start;
     }
 
     .social-media-list {

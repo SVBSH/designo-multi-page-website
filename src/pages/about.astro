@@ -13,8 +13,8 @@
 
 <BaseLayout title="About">
   <div class="about">
-    <div class="hero | bg-primary-peach round-base">
-      <div class="hero__info | flex flex-col text-primary-white">
+    <div class="hero">
+      <div class="hero__info | flex flex-col text-primary-white bg-primary-peach">
         <h1 class="hero__heading">About Us</h1>
         <p class="hero__text">
           Founded in 2010, we are a creative agency that produces lasting results for our clients.
@@ -24,9 +24,9 @@
         </p>
       </div>
       <picture class="hero__img-wrapper">
-        <source media="(min-width:1000px)" width="476px" height="268px" srcset={imgDesktop} >
-        <source media="(min-width:468px)" width="689px" height="388px" srcset={imgTablet} >
-        <img class="hero__img" width="375px" height="211px" src={imgMobile}  alt=""
+        <source media="(min-width:1000px)" width="476px" height="268px" srcset={imgDesktop}>
+        <source media="(min-width:468px)" width="689px" height="388px" srcset={imgTablet}>
+        <img class="hero__img" width="375px" height="211px" src={imgMobile} alt=""
           draggable="false">
       </picture>
     </div>
@@ -134,6 +134,20 @@
 
   @media (min-width: 768px) {
 
+    .hero {
+
+      &__info {
+        border-bottom-left-radius: var(--component-radius);
+        border-bottom-right-radius: var(--component-radius);
+      }
+
+      &__img {
+        border-top-left-radius: var(--component-radius);
+        border-top-right-radius: var(--component-radius);
+      }
+
+    }
+
     .card,
     .hero {
       width: var(--page-width);
@@ -153,6 +167,17 @@
         text-align: left;
         align-items: start;
         padding-inline: 2.5em;
+
+        border-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+
+      }
+
+      &__img {
+        border-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
 
       &__img-wrapper {
@@ -197,6 +222,20 @@
     .card__info,
     .hero__info {
       padding-inline: 3.5em;
+    }
+
+    .hero {
+
+      &__info {
+        border-top-left-radius: var(--component-radius);
+        border-bottom-left-radius: var(--component-radius);
+      }
+
+      &__img {
+        border-top-right-radius: var(--component-radius);
+        border-bottom-right-radius: var(--component-radius);
+      }
+
     }
   }
 </style>

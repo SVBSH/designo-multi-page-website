@@ -185,22 +185,40 @@
   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
 <script>
-  var map_1 = L.map('loc-1').setView([43.712450, -79.246783], 13);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map_1);
+  function createMap(mapId, coordinates, mapConfig) {
+    const map = L.map(mapId).setView(coordinates, mapConfig.defaultZoom);
+    L.tileLayer(mapConfig.tileLayer, {
+      maxZoom: mapConfig.maxZoom,
+      attribution: mapConfig.attribution
+    }).addTo(map);
+  }
 
-  var map_2 = L.map('loc-2').setView([-33.108171696928025, 151.48939430838414], 11);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map_2);
+  const mapConfig = {
+      tileLayer: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      maxZoom: 19,
+      defaultZoom: 13,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }
 
-  var map_3 = L.map('loc-3').setView([43.712450, -79.246783], 13);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map_3);
-
+  const maps = [
+    {
+      mapId: 'loc-1',
+      coordinates: [43.712450, -79.246783],
+      mapConfig: mapConfig
+    },
+    {
+      mapId: 'loc-2',
+      coordinates: [-33.108171696928025, 151.48939430838414],
+      mapConfig: mapConfig
+    },
+    {
+      mapId: 'loc-3',
+      coordinates: [43.712450, -79.246783],
+      mapConfig: mapConfig
+    }
+  ]
+  
+  maps.forEach(map => {
+    createMap(map.mapId, map.coordinates, mapConfig);
+  })
 </script>

@@ -2,7 +2,7 @@
   const { pageTitle, description } = Astro.props;
 ---
 
-<div class="hero | bg-primary-peach text-center round-base">
+<div class="hero | bg-primary-peach text-center">
   <div class="hero-inside-wrapper flex flex-col">
     <h1 class="hero__heading | text-primary-white">{pageTitle}</h1>
     <p class="hero__text | text-primary-white">{description}</p>
@@ -34,6 +34,7 @@
 
   @media (min-width: 768px) {
     .hero {
+      border-radius: var(--component-radius);
       width: var(--page-width);
       margin: auto;
       background-size: cover;

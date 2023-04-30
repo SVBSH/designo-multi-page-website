@@ -139,6 +139,11 @@
 
   // hero section
   .hero {
+    --bg-path: '/assets/home/desktop/bg-pattern-hero-home.svg';
+    background-image: url('public/assets/home/desktop/bg-pattern-hero-home.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+
     padding-top: 4em;
     display: grid;
     grid-template-rows: min-content auto;
@@ -276,6 +281,11 @@
   }
 
   @media (min-width: 768px) {
+    .hero {
+      background-position: center right;
+
+    }
+
     .home-page {
       width: var(--page-width);
       margin: auto;
@@ -295,7 +305,7 @@
       padding-inline: 3em;
       border-radius: var(--component-radius);
       grid-template-columns: 2fr 1fr;
-      text-align: left;    
+      text-align: left;
 
       &__heading {
         max-width: 80ch;

@@ -1,26 +1,45 @@
 ---
+
+  export interface Props {
+    title: string,
+    description: string,
+    items: PageItems[]
+  }
+
+  export interface PageItems {
+    title: string;
+    description: string;
+    image: {
+      path: string;
+      description: string;
+    }
+    link: string;
+  }
+
+
   import BaseLayout from "../layouts/BaseLayout.astro";
   import PageSpecialisationHeroSection from "../components/pageSpecialisationHeroSection.astro";
-  const { pageTitle, pageDescription, webPages } = Astro.props;
+  const { title, description, items }: Props = Astro.props;
+
 
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout title={title}>
 
-  <PageSpecialisationHeroSection pageTitle={pageTitle} description={pageDescription} />
+  <PageSpecialisationHeroSection pageTitle={title} description={description} />
   <div class="wrapper">
-    {(webPages.length > 0) &&
+    {(items.length > 0) &&
     <ul class="web-page-list">
-      {webPages.map(webpage =>
+      {items.map(item =>
       <>
         <li class="web-page__item">
-          <a href={webpage.link} class="web-page__link">
+          <a href={item.link} class="web-page__link">
             <figure class="web-page__figure">
-              <img class="web-page__img" src={webpage.image.path} alt={webpage.image.description}
+              <img class="web-page__img" src={item.image.path} alt={item.image.description}
                 draggable="false" />
               <figcaption class="web-page__info | flex flex-col text-center">
-                <h3 class="text-uppercase">{webpage.title}</h3>
-                <p class="web-page__description">{webpage.description}</p>
+                <h3 class="text-uppercase">{item.title}</h3>
+                <p class="web-page__description">{item.description}</p>
               </figcaption>
             </figure>
           </a>
@@ -31,42 +50,53 @@
 </BaseLayout>
 
 <style lang="scss">
+
+
   .web-page-list {
-    // display: grid;
     display: flex;
     flex-wrap: wrap;
-    flex: 1;
     justify-content: center;
-    gap: 3rem 2rem;
-    margin-block: 3rem;
+    gap: 2.5rem 2rem;
+    margin-bottom: 3rem;
+    margin-top: 10rem;
   }
+
 
   .web-page {
     --radius-size: 12px;
+
 
     &__link {
       display: block;
       text-decoration: none;
     }
 
-
-
     &__figure {
       display: grid;
       grid-auto-flow: row;
+      grid-template-columns: 1fr;
+
     }
 
     &__img {
       --radius-size: 12px;
       border-top-left-radius: var(--radius-size);
       border-top-right-radius: var(--radius-size);
+      max-height: 350px;
+
+      grid-column: 1;
+      grid-row: 1;
     }
 
     &__info {
       --radius-size: 12px;
       --transition-duration: 180ms;
+      --gap: 1.5em;
 
-      padding-block: 3rem;
+      grid-column: 1;
+      grid-row: 2;
+
+      padding-block: 2em;
       padding-inline: 2rem;
 
       background-color: hsla(14, 76%, 97%, 1);
@@ -89,6 +119,14 @@
     }
 
     //  Hover & Focus effects
+    &__item {
+      transition: transform 250ms ease-out;
+    }
+
+    &__item:where(:focus-within, :hover) {
+      transform: scale(1.05);
+    }
+
     &__link:where(:focus-within, :hover) {
       outline: none;
     }
@@ -107,7 +145,11 @@
     .web-page {
 
       &-list {
-        justify-content: space-evenly;
+        align-content: space-between;
+      }
+
+      &__item:last-child {
+        margin-right: auto;
       }
 
       &__figure {
@@ -135,20 +177,22 @@
     }
   }
 
-  @media (min-width: 1400px) {
+  @media (min-width: 900px) {
 
     .web-page {
+
       &-list {
-        justify-content: space-evenly;
+        justify-content: start;
       }
 
       &__figure {
-        overflow: hidden;
+        max-width: 350px;
         grid-template-columns: 1fr;
-        grid-template-rows: 2fr auto;
+        overflow: hidden;
       }
 
       &__img {
+        max-height: 358px;
         grid-column: 1;
         grid-row: 1;
         border-top-right-radius: var(--radius-size);

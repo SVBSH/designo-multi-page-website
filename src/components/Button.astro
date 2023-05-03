@@ -1,8 +1,11 @@
 ---
-  const { text } = Astro.props;
+  const { text, btnType } = Astro.props;
+
 ---
 
-<button class="btn | text-primary-white font-medium text-uppercase pointer round-base">
+<button  class:list={
+  ["btn | text-primary-white font-medium text-uppercase pointer round-base"]}
+  data-type={btnType}> 
   {text}
 </button>
 
@@ -12,26 +15,30 @@
     font-size: var(--font-size-sm);
     letter-spacing: 2px;
     padding: 1.25em 1.5em;
+
+    color: var(--textColor, white);
+    background-color: var(--bgColor, black);
+    transition: background-color 150ms ease-out;
   }
 
   .btn[data-type="light"] {
-    color: var(--color-primary-black);
-    background-color: var(--color-primary-white);
-    transition: background-color 300ms ease-out;
-
-
+    --textColor: var(--color-primary-black);
+    --bgColor: var(--color-primary-white);
+    
     &:where(:hover, :focus-within) {
-      background-color: var(--color-secondary-light-peach);
+      --bgColor: var(--color-secondary-light-peach, white);
+      --textColor: white;
     }
   }
 
   .btn[data-type="peach"] {
-    color: var(--color-primary-white);
-    background-color: var(--color-primary-peach);
-    transition: opacity 300ms ease-out;
+    --textColor: var(--color-primary-white);
+    --bgColor: var(--color-primary-peach);
 
     &:where(:hover, :focus-within) {
       opacity: .7;
+      --bgColor: var(--color-secondary-light-peach, white);
+      --textColor: white;
     }
   }
 </style>

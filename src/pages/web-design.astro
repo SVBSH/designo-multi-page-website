@@ -1,9 +1,15 @@
 ---
+  import type { PageItems } from "src/layouts/PageSpecialisationLayout.astro";
+  import type { Props } from "src/layouts/PageSpecialisationLayout.astro";
+
+
+
   import PageSpecialisationLayout from "../layouts/PageSpecialisationLayout.astro";
   const pageTitle = "Web Design"
   const pageDescription = "We build websites that serve as powerful marketing tools and bring memorable brand experiences.";
 
-  const webPages = [
+
+ const webPages: PageItems[] = [
     {
       title: "Express",
       description: "A multi-carrier shipping website for ecommerce businesses",
@@ -59,9 +65,21 @@
       link: "https://svbsh.github.io/web-pages/junior/blogr-landing-page-main/"
     },
   ]
+
+  const webDesignProps: Props = {
+    title: "Web Design",
+    description: "We build websites that serve as powerful marketing tools and bring memorable brand experiences.",
+    items: webPages
+  }
+
+ 
 ---
 <PageSpecialisationLayout 
-  pageTitle={pageTitle}
-  pageDescription={pageDescription}
-  webPages={webPages}
+  title={pageTitle}
+  description={pageDescription}
+  items={webDesignProps.items}
 />
+
+<!-- title={pageTitle}
+  description={pageDescription}
+  items={webPages} -->

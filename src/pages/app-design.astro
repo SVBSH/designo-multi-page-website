@@ -1,10 +1,12 @@
 ---
 import PageSpecialisationLayout from "../layouts/PageSpecialisationLayout.astro";
+import type { PageItems } from "src/layouts/PageSpecialisationLayout.astro";
 
-const pageTitle="App Design";
-const pageDescription="Our mobile designs bring intuitive digital solutions to your customers right at their fingertips."
+const pageTitle: string = "App Design";
+const pageDescription: string = "Our mobile designs bring intuitive digital solutions to your customers right at their fingertips."
 
-const webPages = [
+
+const webPages: PageItems[] = [
     {
       title: "Airfilter",
       description: "Solving the problem of poor indoor air quality by filtering the air",
@@ -54,7 +56,7 @@ const webPages = [
 
 ---
   <PageSpecialisationLayout 
-    pageTitle={pageTitle}
-    pageDescription={pageDescription}
-    webPages={webPages}
+    title={pageTitle}
+    description={pageDescription}
+    items={webPages}
   />

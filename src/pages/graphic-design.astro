@@ -1,11 +1,12 @@
 ---
   import PageSpecialisationLayout from "../layouts/PageSpecialisationLayout.astro";
+  import type { PageItems } from "src/layouts/PageSpecialisationLayout.astro";
 
   const pageTitle = "Graphic Design";
   const pageDescription = "We deliver eye-catching branding materials that are tailored to meet your business objectives.";
 
 
-  const webPages = [
+  const webPages: PageItems[] = [
     {
       title: "Tim Brown",
       description: "A book cover designed for Tim Brown’s new release, ‘Change’",
@@ -36,7 +37,7 @@
 ]
 ---  
 <PageSpecialisationLayout 
-  pageTitle={pageTitle}
-  pageDescription={pageDescription}
-  webPages={webPages}
+  title={pageTitle}
+  description={pageDescription}
+  items={webPages}
 />

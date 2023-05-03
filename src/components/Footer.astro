@@ -12,6 +12,7 @@
   import iconPinterest from "/assets/shared/desktop/icon-pinterest.svg";
   import iconTwitter from "/assets/shared/desktop/icon-twitter.svg";
   import iconYoutube from "/assets/shared/desktop/icon-youtube.svg";
+import Button from "./Button.astro";
 
 ---
 
@@ -27,7 +28,9 @@
           our expertise can
           help your business grow.</p>
       </div>
-      <button class="btn text-uppercase font-medium" data-type="light">Get in touch</button>
+       <Button 
+          text="Get in touch"
+          btnType="light"/>
     </div>
     }
 
@@ -111,6 +114,27 @@
     grid-area: logo;
   }
 
+  .social-m-icon {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      height: 2px;
+      width: 0;
+      background-color: var(--color-secondary-light-peach);
+      transition: width 100ms ease-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
 
   .card {
     position: absolute;
@@ -169,6 +193,7 @@
   .social-media-list {
     grid-area: socials;
     height: min-content;
+    gap: 1.125rem;
   }
 
   @media (min-width: 768px) {

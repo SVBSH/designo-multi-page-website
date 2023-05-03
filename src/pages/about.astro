@@ -60,7 +60,7 @@
       </picture>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper locations">
       <CityLocations />
     </div>
 
@@ -96,7 +96,10 @@
 <style lang="scss">
   .about {
     display: grid;
-    gap: 10rem;
+  }
+
+  .locations {
+    margin-block: 10rem;
   }
 
   .card,
@@ -134,6 +137,10 @@
 
   @media (min-width: 768px) {
 
+    .about {
+      gap: 10rem;
+    }
+
     .hero {
 
       &__info {
@@ -146,6 +153,10 @@
         border-top-right-radius: var(--component-radius);
       }
 
+    }
+
+    .locations {
+      margin-block: 0rem;
     }
 
     .card,
@@ -168,16 +179,13 @@
         align-items: start;
         padding-inline: 2.5em;
 
-        border-radius: 0;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-
+        border-top-left-radius: var(--component-radius);
+        border-bottom-right-radius: 0;
       }
 
       &__img {
-        border-radius: 0;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: var(--component-radius);
       }
 
       &__img-wrapper {
@@ -189,6 +197,8 @@
     .card[data-direction="odd-col"] {
       grid-template-columns: 2fr 1.5fr;
       grid-template-rows: minmax(300px, 600px);
+
+      
     }
 
     .card[data-direction="even-col"] {

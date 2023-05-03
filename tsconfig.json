@@ -6,5 +6,6 @@
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"]
     },
+    "importsNotUsedAsValues": "error"
   }
 }

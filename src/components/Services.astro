@@ -172,8 +172,8 @@
   if (serviceList.getAttribute('data-main-page') === "false") {
     const services = document.querySelectorAll('.service');
     console.log()
-    const l = "/" + window.location.href.split('/').pop();
-    
+    const l = "/" + document.URL.split('/').filter(v => v != '').pop();
+
     services.forEach(service => {
       console.log(service.getAttribute('href'), l);
       if (service.getAttribute('href') === l) {

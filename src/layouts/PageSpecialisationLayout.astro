@@ -33,9 +33,12 @@
       {items.map(item =>
       <>
         <li class="web-page__item">
-          <a href={item.link} class="web-page__link">
+          <a href={item.link} class="web-page__link" target="_blank">
             <figure class="web-page__figure">
-              <img class="web-page__img" src={item.image.path} alt={item.image.description}
+              <img class="web-page__img" 
+                // width="700px" height="600px" 
+                src={item.image.path} 
+                alt={item.image.description}
                 draggable="false" />
               <figcaption class="web-page__info | flex flex-col text-center">
                 <h3 class="text-uppercase">{item.title}</h3>
@@ -82,7 +85,9 @@
       --radius-size: 12px;
       border-top-left-radius: var(--radius-size);
       border-top-right-radius: var(--radius-size);
-      max-height: 350px;
+
+      width: 100%;
+      object-fit: cover;
 
       grid-column: 1;
       grid-row: 1;
@@ -95,6 +100,7 @@
 
       grid-column: 1;
       grid-row: 2;
+      height: 160px;
 
       padding-block: 2em;
       padding-inline: 2rem;

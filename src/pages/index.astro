@@ -2,16 +2,14 @@
   import BaseLayout from "../layouts/BaseLayout.astro";
   import Button from "@components/Button.astro";
 
-  import imgHeroPhone from "/assets/home/desktop/image-hero-phone.png"
   import imgIlustrationPassionate from "/assets/home/desktop/illustration-passionate.svg";
   import imgIlustrationFriendly from "/assets/home/desktop/illustration-friendly.svg";
   import imgIlustrationResourceful from "/assets/home/desktop/illustration-resourceful.svg";
 
-
+  import Services from "@components/Services.astro";
   import mobileWebDesign from "/assets/home/mobile/image-web-design.jpg";
   import tabletWebDesign from "/assets/home/tablet/image-web-design.jpg";
   import desktopWebDesignLarge from "/assets/home/desktop/image-web-design-large.jpg";
-  import desktopWebDesignSmall from "/assets/home/desktop/image-web-design-small.jpg";
 
   import mobileGraphicDesign from "/assets/home/mobile/image-graphic-design.jpg";
   import tabletGraphicDesign from "/assets/home/tablet/image-graphic-design.jpg";
@@ -40,47 +38,9 @@
       <div class="img-container">
         <div class="img-container hero__img" draggable="false" />
       </div>
-    </div>
-
-    <section class="services | wrapper">
-      <a href="/web-design" class="service | font-medium text-uppercase text-primary-white">
-        <picture class="service__background-container">
-          <source media="(min-width:1200px)" srcset={desktopWebDesignLarge}>
-          <source media="(min-width:768px)" srcset={tabletWebDesign}>
-          <img class="service__background | round-base" src={mobileWebDesign} alt="">
-        </picture>
-        <div class="service__content | flex flex-col">
-          <h2>Web Design</h2>
-          <p class="service__projects">View Projects</p>
-        </div>
-      </a>
-
-      <a href="/app-design" class="service | font-medium text-uppercase text-primary-white">
-        <picture class="service__background-container">
-          <source media="(min-width:1200px)" srcset={desktopAppDesign}>
-          <source media="(min-width:768px)" srcset={tabletAppDesign}>
-          <img class="service__background | round-base" src={mobileAppDesign} alt="">
-        </picture>
-
-        <div class="service__content | flex flex-col">
-          <h2>App Design</h2>
-          <p class="service__projects">View Projects</p>
-        </div>
-      </a>
-
-      <a href="/graphic-design" class="service | font-medium text-uppercase text-primary-white">
-        <picture class="service__background-container">
-          <source media="(min-width:1200px)" srcset={desktopGraphicDesign}>
-          <source media="(min-width:768px)" srcset={tabletGraphicDesign}>
-          <img class="service__background | round-base" src={mobileGraphicDesign} alt="">
-        </picture>
-
-        <div class="service__content | flex flex-col">
-          <h2>Graphic Design</h2>
-          <p class="service__projects">View Projects</p>
-        </div>
-      </a>
-    </section>
+    </div>  
+    
+    <Services mainPage="true" />
 
     <section class="characteristics | wrapper">
       <div class="characteristics__card">

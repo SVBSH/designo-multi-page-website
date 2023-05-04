@@ -1,0 +1,182 @@
+---
+  const { mainPage } = Astro.props;
+  // Images
+  import mobileWebDesign from "/assets/home/mobile/image-web-design.jpg";
+  import tabletWebDesign from "/assets/home/tablet/image-web-design.jpg";
+  import desktopWebDesignLarge from "/assets/home/desktop/image-web-design-large.jpg";
+
+  import mobileGraphicDesign from "/assets/home/mobile/image-graphic-design.jpg";
+  import tabletGraphicDesign from "/assets/home/tablet/image-graphic-design.jpg";
+  import desktopGraphicDesign from "/assets/home/desktop/image-graphic-design.jpg";
+
+  import mobileAppDesign from "/assets/home/mobile/image-app-design.jpg";
+  import tabletAppDesign from "/assets/home/tablet/image-app-design.jpg";
+  import desktopAppDesign from "/assets/home/desktop/image-app-design.jpg";
+---
+
+<section class="services | wrapper" data-main-page={mainPage}>
+    <a href="/web-design" class="service | font-medium text-uppercase text-primary-white">
+      <picture class="service__background-container">
+        <source media="(min-width:1200px)" srcset={desktopWebDesignLarge}>
+        <source media="(min-width:768px)" srcset={tabletWebDesign}>
+        <img class="service__background | round-base" src={mobileWebDesign} alt="">
+      </picture>
+      <div class="service__content | flex flex-col">
+        <h2>Web Design</h2>
+        <p class="service__projects">View Projects</p>
+      </div>
+    </a>
+
+  <a href="/app-design" class="service | font-medium text-uppercase text-primary-white">
+    <picture class="service__background-container">
+      <source media="(min-width:1200px)" srcset={desktopAppDesign}>
+      <source media="(min-width:768px)" srcset={tabletAppDesign}>
+      <img class="service__background | round-base" src={mobileAppDesign} alt="">
+    </picture>
+
+    <div class="service__content | flex flex-col">
+      <h2>App Design</h2>
+      <p class="service__projects">View Projects</p>
+    </div>
+  </a>
+
+  <a href="/graphic-design" class="service | font-medium text-uppercase text-primary-white">
+    <picture class="service__background-container">
+      <source media="(min-width:1200px)" srcset={desktopGraphicDesign}>
+      <source media="(min-width:768px)" srcset={tabletGraphicDesign}>
+      <img class="service__background | round-base" src={mobileGraphicDesign} alt="">
+    </picture>
+
+    <div class="service__content | flex flex-col">
+      <h2>Graphic Design</h2>
+      <p class="service__projects">View Projects</p>
+    </div>
+  </a>
+</section>
+
+
+<style lang="scss">
+  .services {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .service {
+    position: relative;
+
+    &__background-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__background {
+      object-fit: cover;
+      width: inherit;
+      height: inherit;
+    }
+
+    &:where(:focus-within, :hover) &__content::after {
+      opacity: .7;
+    }
+
+    &__content {
+      position: absolute;
+      inset: 0;
+      isolation: isolate;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      &::after {
+        border-radius: 10px;
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 300ms ease-out;
+        background-color: var(--color-primary-peach);
+      }
+    }
+
+    &__projects {
+      display: block;
+      display: flex;
+      gap: .5rem;
+      letter-spacing: 3px;
+
+      &::after {
+        display: block;
+        --size: 14px;
+        content: '';
+        margin-block: auto;
+        transform: translateY(-2px);
+        width: var(--size);
+        height: var(--size);
+        background: url("/assets/shared/desktop/icon-right-arrow.svg") center center no-repeat;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .services {
+      max-height: 640px;
+      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      .service {
+        min-height: 100%;
+
+        &:nth-of-type(1) {
+          grid-column: 1;
+          grid-row: 1 / -1;
+        }
+
+        &:nth-of-type(2) {
+          grid-column: 2;
+          grid-row: 1;
+          max-height: 300px;
+        }
+
+        &:nth-of-type(3) {
+          grid-column: 2;
+          grid-row: 2;
+          max-height: 300px;
+        }
+      }
+
+      &[data-main-page="false"] {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        &>.service:nth-of-type(1) {
+          grid-column: 1;
+          grid-row: 1;
+          max-height: 300px;
+        }
+
+        &>.service:nth-of-type(2) {
+          grid-column: 2;
+          grid-row: 1;
+          max-height: 300px;
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  const serviceList = document.querySelector('.services');
+
+  if (serviceList.getAttribute('data-main-page') === "false") {
+    const services = document.querySelectorAll('.service');
+    console.log()
+    const l  = "/" + window.location.href.split('/').pop();
+    services.forEach(service => {
+      if (service.getAttribute('href') === l) {
+        service.remove();
+      }
+    })
+  }
+</script>

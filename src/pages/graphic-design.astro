@@ -1,43 +1,11 @@
 ---
   import PageSpecialisationLayout from "../layouts/PageSpecialisationLayout.astro";
-  import type { PageItems } from "src/layouts/PageSpecialisationLayout.astro";
-
+  import graphicDesignPages from 'src/data/graphic-design.json';
   const pageTitle = "Graphic Design";
   const pageDescription = "We deliver eye-catching branding materials that are tailored to meet your business objectives.";
-
-
-  const webPages: PageItems[] = [
-    {
-      title: "Tim Brown",
-      description: "A book cover designed for Tim Brown’s new release, ‘Change’",
-      image: {
-        path: "/assets/graphic-design/desktop/image-change.jpg",
-        description: ""
-      },
-      link: ""
-    },
-    {
-      title: "Boxed water",
-      description: "A simple packaging concept made for Boxed Water",
-      image: {
-        path: "/assets/graphic-design/desktop/image-boxed-water.jpg",
-        description: ""
-      },
-      link: ""
-    },
-    {
-      title: "Science!",
-      description: "A poster made in collaboration with the Federal Art Project",
-      image: {
-        path: "/assets/graphic-design/desktop/image-science.jpg",
-        description: ""
-      },
-      link: ""
-    },
-]
 ---  
 <PageSpecialisationLayout 
   title={pageTitle}
   description={pageDescription}
-  items={webPages}
+  items={graphicDesignPages}
 />

@@ -1,5 +1,5 @@
 ---
-
+  import Services from "@components/Services.astro";
   export interface Props {
     title: string,
     description: string,
@@ -35,10 +35,7 @@
         <li class="web-page__item">
           <a href={item.link} class="web-page__link" target="_blank">
             <figure class="web-page__figure">
-              <img class="web-page__img" 
-                // width="700px" height="600px" 
-                src={item.image.path} 
-                alt={item.image.description}
+              <img class="web-page__img" src={item.image.path} alt={item.image.description}
                 draggable="false" />
               <figcaption class="web-page__info | flex flex-col text-center">
                 <h3 class="text-uppercase">{item.title}</h3>
@@ -50,11 +47,10 @@
       </>)}
     </ul>}
   </div>
+  <Services mainPage="false" />
 </BaseLayout>
 
 <style lang="scss">
-
-
   .web-page-list {
     display: flex;
     flex-wrap: wrap;
@@ -78,7 +74,6 @@
       display: grid;
       grid-auto-flow: row;
       grid-template-columns: 1fr;
-
     }
 
     &__img {
@@ -100,7 +95,6 @@
 
       grid-column: 1;
       grid-row: 2;
-      height: 160px;
 
       padding-block: 2em;
       padding-inline: 2rem;
@@ -117,7 +111,7 @@
         color: var(--color-primary-peach);
       }
 
-      &>p {
+      &__description {
         color: var(--color-primary-black);
         max-width: 30ch;
         margin: auto;
@@ -150,8 +144,14 @@
 
     .web-page {
 
-      &-list {
-        align-content: space-between;
+      &__description {
+        margin: 0;
+      }
+
+      &__info {
+        display: flex;
+        place-items: center;
+        place-content: center;
       }
 
       &__item:last-child {
@@ -186,15 +186,13 @@
   @media (min-width: 900px) {
 
     .web-page {
-
       &-list {
-        justify-content: start;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }
 
       &__figure {
-        max-width: 350px;
         grid-template-columns: 1fr;
-        overflow: hidden;
       }
 
       &__img {
@@ -206,6 +204,7 @@
       }
 
       &__info {
+        height: 160px;
         grid-column: 1;
         grid-row: 2;
         border-top-right-radius: 0;

@@ -12,8 +12,7 @@
   import iconPinterest from "/assets/shared/desktop/icon-pinterest.svg";
   import iconTwitter from "/assets/shared/desktop/icon-twitter.svg";
   import iconYoutube from "/assets/shared/desktop/icon-youtube.svg";
-import Button from "./Button.astro";
-
+  import Button from "./Button.astro";
 ---
 
 <footer class="footer bg-primary-black">
@@ -130,7 +129,7 @@ import Button from "./Button.astro";
       transition: width 100ms ease-out;
     }
 
-    &:hover::after {
+    &:where(:hover, :focus-within)::after {
       width: 100%;
     }
   }

@@ -27,9 +27,7 @@
           our expertise can
           help your business grow.</p>
       </div>
-       <Button 
-          text="Get in touch"
-          btnType="light"/>
+      <Button text="Get in touch" btnType="light" />
     </div>
     }
 
@@ -44,15 +42,16 @@
         <li class="nav-item nav__item"><a href="/contact/" class="nav__link">Contact</a></li>
       </ul>
     </nav>
+    <div class="line-separator"></div>
     <ul class="contact-list | flex flex-col" style="--gap: .4rem;">
-      <li class="contact-item | font-bold text-secondary-light-grey">Designo Central Office</li>
-      <li class="contact-item | text-secondary-light-grey">3886 Wellington Street </li>
-      <li class="contact-item | text-secondary-light-grey">Toronto, Ontario M9C 3J5</li>
+      <li class="font-bold text-primary-white">Designo Central Office</li>
+      <li class="text-primary-white">3886 Wellington Street </li>
+      <li class="text-primary-white">Toronto, Ontario M9C 3J5</li>
     </ul>
     <ul class="contact-list | flex flex-col" style="--gap: .4rem;">
-      <li class="font-bold text-secondary-light-grey">Contact Us (Central Office)</li>
-      <li class="text-secondary-light-grey">P : +1 253-863-8967</li>
-      <li class="text-secondary-light-grey">M : contact@designo.co</li>
+      <li class="font-bold text-primary-white">Contact Us (Central Office)</li>
+      <li class="text-primary-white">P : +1 253-863-8967</li>
+      <li class="text-primary-white">M : contact@designo.co</li>
     </ul>
     <ul class="social-media-list | flex" style="">
       <li>
@@ -98,6 +97,7 @@
     justify-items: center;
     grid-template-areas:
       "logo"
+      "lineSeparator"
       "navigation"
       "office"
       "contact"
@@ -107,6 +107,13 @@
     background: var(--color-primary-black);
     color: var(--color-primary-white);
     text-align: center;
+  }
+
+  .line-separator {
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-secondary-light-grey-1);
+    opacity: .4;
   }
 
   .logo-wrapper {
@@ -181,6 +188,10 @@
     }
   }
 
+  .contact-list > li {
+    opacity: .5;
+  }
+
   .contact-list:nth-of-type(1) {
     grid-area: office;
   }
@@ -201,9 +212,14 @@
       text-align: left;
       grid-template-areas:
         "logo navigation navigation"
+        "lineSeparator lineSeparator lineSeparator"
         "office contact socials";
       grid-template-columns: auto auto 1fr;
       gap: 6rem auto;
+    }
+
+    .line-separator {
+      grid-column: 1/-1;
     }
 
     .card {
@@ -212,11 +228,11 @@
       justify-content: space-between;
       max-height: 400px;
       padding-inline: 3em;
-      padding-block: 3rem;
+      padding-block: 3.5rem;
       background-image: url("/assets/shared/tablet/bg-pattern-design-pages-intro-tablet.svg");
 
       &__info {
-        justify-self: start;
+        justify-items: start;
       }
     }
 
@@ -236,12 +252,15 @@
       & .contact-list {
         justify-self: start;
       }
-
     }
 
     .social-media-list {
       margin-top: auto;
       margin-left: auto;
+    }
+
+    .contact-list:nth-of-type(1) {
+      justify-self: start;
     }
   }
 </style>

@@ -1,6 +1,7 @@
 ---
   import BaseLayout from "../layouts/BaseLayout.astro";
-  import CityLocations from "@components/CityLocations.astro";;
+  import CityLocations from "@components/CityLocations.astro";import Button from "@components/Button.astro";
+;
 ---
 
 <BaseLayout title="Contact Us" contactAdvertisement={false}>
@@ -28,6 +29,8 @@
         <input type="text" id="message"
           class="contact-form__input | block text-primary-white font-medium"
           placeholder="Your message" required />
+
+        
         <button type="submit" title="Submit"
           class="contact-form__submit |  btn text-uppercase font-medium" data-type="light"
           formnovalidate>Submit</button>

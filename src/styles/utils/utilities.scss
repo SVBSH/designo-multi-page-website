@@ -82,11 +82,12 @@
   &:where([data-type="light"]) {
     --btn-color: var(--color-primary-black);
     --btn-bg: var(--color-primary-white);
-    transition: background-color 300ms ease-out;
+    transition: background-color 150ms ease-out;
 
 
     &:where(:hover, :focus-within) {
       background-color: var(--color-secondary-light-peach);
+      color: white;
     }
   }
 

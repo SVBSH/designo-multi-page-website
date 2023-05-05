@@ -1,29 +1,17 @@
 ---
   import BaseLayout from "../layouts/BaseLayout.astro";
   import Button from "@components/Button.astro";
+  import Services from "@components/Services.astro";
 
   import imgIlustrationPassionate from "/assets/home/desktop/illustration-passionate.svg";
   import imgIlustrationFriendly from "/assets/home/desktop/illustration-friendly.svg";
   import imgIlustrationResourceful from "/assets/home/desktop/illustration-resourceful.svg";
-
-  import Services from "@components/Services.astro";
-  import mobileWebDesign from "/assets/home/mobile/image-web-design.jpg";
-  import tabletWebDesign from "/assets/home/tablet/image-web-design.jpg";
-  import desktopWebDesignLarge from "/assets/home/desktop/image-web-design-large.jpg";
-
-  import mobileGraphicDesign from "/assets/home/mobile/image-graphic-design.jpg";
-  import tabletGraphicDesign from "/assets/home/tablet/image-graphic-design.jpg";
-  import desktopGraphicDesign from "/assets/home/desktop/image-graphic-design.jpg";
-
-  import mobileAppDesign from "/assets/home/mobile/image-app-design.jpg";
-  import tabletAppDesign from "/assets/home/tablet/image-app-design.jpg";
-  import desktopAppDesign from "/assets/home/desktop/image-app-design.jpg";
 ---
 
 <BaseLayout title="Frontend Mentor | Designo Agency Website Challenge">
   <div class="home-page | grid">
 
-    <div class="hero | bg-primary-peach">
+    <div class="hero | bg-primary-peach round-lg">
       <div class="hero__content | flex flex-col">
         <h1 class="hero__heading | text-primary-white">
           Award-winning custom designs and digital branding solutions
@@ -107,8 +95,6 @@
     padding-top: 4em;
     display: grid;
     grid-template-rows: min-content auto;
-
-    border-radius: var(--component-radius);
     text-align: center;
 
     &__heading {

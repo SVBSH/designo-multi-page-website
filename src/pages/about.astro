@@ -142,17 +142,27 @@
     }
 
     .hero {
-
       &__info {
-        border-bottom-left-radius: var(--component-radius);
-        border-bottom-right-radius: var(--component-radius);
+        border-bottom-left-radius: var(--round-lg);
+        border-bottom-right-radius: var(--round-lg);
       }
 
       &__img {
-        border-top-left-radius: var(--component-radius);
-        border-top-right-radius: var(--component-radius);
+        border-top-left-radius: var(--round-lg);
+        border-top-right-radius: var(--round-lg);
+      }
+    }
+
+    .card {
+      &__img {
+        border-top-left-radius: var(--round-lg);
+        border-top-right-radius: var(--round-lg);
       }
 
+      &__info {
+        border-bottom-left-radius: var(--round-lg);
+        border-bottom-right-radius: var(--round-lg);
+      }
     }
 
     .locations {
@@ -179,13 +189,15 @@
         align-items: start;
         padding-inline: 2.5em;
 
-        border-top-left-radius: var(--component-radius);
+
+
+        border-top-left-radius: var(--round-lg);
         border-bottom-right-radius: 0;
       }
 
       &__img {
         border-top-left-radius: 0;
-        border-bottom-right-radius: var(--component-radius);
+        border-bottom-right-radius: var(--round-lg);
       }
 
       &__img-wrapper {
@@ -198,12 +210,33 @@
       grid-template-columns: 2fr 1.5fr;
       grid-template-rows: minmax(300px, 600px);
 
-      
+      .card__img {
+        border-top-right-radius: var(--round-lg);
+      }
+
+      .card__info {
+        border-bottom-left-radius: var(--round-lg);
+      }
     }
 
     .card[data-direction="even-col"] {
       grid-template-columns: 1.5fr 2fr;
       grid-template-rows: minmax(300px, 600px);
+
+      .card__img {
+        border-radius: 0;
+        border-top-left-radius: var(--round-lg);
+        border-bottom-left-radius: var(--round-lg);
+
+      }
+
+      .card__info {
+        border-radius: 0;
+        border-top-right-radius: var(--round-lg);
+        border-bottom-right-radius: var(--round-lg);
+
+      }
+
     }
 
     .card[data-direction="even-col"] .card__info {
@@ -237,15 +270,14 @@
     .hero {
 
       &__info {
-        border-top-left-radius: var(--component-radius);
-        border-bottom-left-radius: var(--component-radius);
+        border-top-left-radius: var(--round-lg);
+        border-bottom-left-radius: var(--round-lg);
       }
 
       &__img {
-        border-top-right-radius: var(--component-radius);
-        border-bottom-right-radius: var(--component-radius);
+        border-top-right-radius: var(--round-lg);
+        border-bottom-right-radius: var(--round-lg);
       }
-
     }
   }
 </style>

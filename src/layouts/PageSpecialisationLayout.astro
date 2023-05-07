@@ -16,10 +16,9 @@
     link: string;
   }
 
-
   import BaseLayout from "../layouts/BaseLayout.astro";
   import PageSpecialisationHeroSection from "../components/pageSpecialisationHeroSection.astro";
-  const { title, description, items }: Props = Astro.props;
+  const { title, description, items }  = Astro.props;
 
 
 ---
@@ -52,8 +51,7 @@
 
 <style lang="scss">
   .web-page-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     justify-content: center;
     gap: 2.5rem 2rem;
     margin-bottom: 3rem;
@@ -120,6 +118,8 @@
 
     //  Hover & Focus effects
     &__item {
+      border-radius: var(--round-lg);
+      box-shadow: hsla(264 5% 20% / .2) 0px 2px 8px 0px;
       transition: transform 250ms ease-out;
     }
 
@@ -140,7 +140,7 @@
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 700px) {
 
     .web-page {
 
@@ -187,7 +187,6 @@
 
     .web-page {
       &-list {
-        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }
 
@@ -196,7 +195,6 @@
       }
 
       &__img {
-        max-height: 358px;
         grid-column: 1;
         grid-row: 1;
         border-top-right-radius: var(--radius-size);
@@ -204,7 +202,6 @@
       }
 
       &__info {
-        height: 160px;
         grid-column: 1;
         grid-row: 2;
         border-top-right-radius: 0;

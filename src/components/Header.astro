@@ -35,12 +35,10 @@
   }
 
   .header {
-    // outline: 3px solid green;
     --header-bottom-margin: 2rem;
     position: relative;
     padding-block: 2rem;
 
-    // margin-bottom: var(--header-bottom-margin);
     .left-section {
       margin: auto;
       width: var(--page-width);
@@ -53,17 +51,24 @@
     left: 0;
     right: 0;
     z-index: 10000;
-    transform: translateY(-200%);
-    padding-block: 2.5rem;
+
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: padding 200ms, 
+                grid-template-rows 200ms;
     background-color: var(--color-primary-black);
+    overflow: hidden;
+
 
     &__list {
+      min-height: 0;
       display: flex;
       flex-direction: column;
       gap: var(--flex-gap, 1rem);
+
       padding: 0;
       width: var(--page-width);
-      margin: auto;
+      margin-inline: auto;
     }
 
     &__item {
@@ -88,40 +93,6 @@
 
     &>*[data-open="false"] {
       display: none;
-    }
-  }
-
-  .tilt-in-top-1 {
-    --duration: 400ms;
-    -webkit-animation: tilt-in-top-1 var(--duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: tilt-in-top-1 var(--duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
-
-  @-webkit-keyframes tilt-in-top-1 {
-    0% {
-      -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-      transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-      opacity: 0;
-    }
-
-    100% {
-      -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-      transform: rotateY(0deg) translateY(0) skewY(0deg);
-      opacity: 1;
-    }
-  }
-
-  @keyframes tilt-in-top-1 {
-    0% {
-      -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-      transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-      opacity: 0;
-    }
-
-    100% {
-      -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-      transform: rotateY(0deg) translateY(0) skewY(0deg);
-      opacity: 1;
     }
   }
 
@@ -151,11 +122,14 @@
       background-color: inherit;
       justify-self: end;
       transform: initial;
+      padding-block: 2.5rem;
+      grid-template-rows: 1fr;
+
 
       &__list {
         --flex-gap: 2.1rem;
         --nav-border-bottom-color: var(--color-secondary-dark-grey);
-        
+
         flex-direction: row;
         width: auto;
       }
@@ -169,22 +143,27 @@
       }
     }
   }
+
+  .nav-open {
+    grid-template-rows: 1fr;
+    padding-block: 2.5rem;
+  }
+
 </style>
 
 <script>
   const menuOpen = document.querySelector('.menu-open');
   const menuClose = document.querySelector('.menu-close');
   const nav = document.querySelector('.nav');
-  
+
   document.querySelector('.menu-control').addEventListener('click', (e) => {
     menuOpen.classList.toggle('hide');
     menuClose.classList.toggle('hide');
-    const l = nav.classList.contains('tilt-in-top-1');
+    const l = nav.classList.contains('nav-open');
     if (l === true) {
-      console.log('hellop')
-      nav.classList.remove('tilt-in-top-1');
+      nav.classList.remove('nav-open');
     } else {
-      nav.classList.add('tilt-in-top-1');
+      nav.classList.add('nav-open');
     }
   });
 </script>

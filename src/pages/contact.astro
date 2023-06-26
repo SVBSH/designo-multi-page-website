@@ -1,39 +1,84 @@
 ---
-  import BaseLayout from "../layouts/BaseLayout.astro";
-  import CityLocations from "@components/CityLocations.astro";import Button from "@components/Button.astro";
-;
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CityLocations from "@components/CityLocations.astro";
+import Button from "@components/Button.astro";
+
+const formErrors = {
+  name: "",
+  email_address: "",
+  phone: "",
+  text: "",
+};
 ---
 
 <BaseLayout title="Contact Us" contactAdvertisement={false}>
-
   <div class="page-wrapper">
     <div class="content | bg-primary-peach text-primary-white">
       <div class="hero | flex flex-col">
         <h1>Contact us</h1>
-        <p>Ready to take it to the next level? Let’s talk about your project or idea and find out
-          how
-          we can help your business grow. If you are looking for unique digital experiences that’s
-          relatable to your users, drop us a line.</p>
+        <p>
+          Ready to take it to the next level? Let’s talk about your project or
+          idea and find out how we can help your business grow. If you are
+          looking for unique digital experiences that’s relatable to your users,
+          drop us a line.
+        </p>
       </div>
-      
-      <form method="POST" action="" class="contact-form | flex flex-col">
-        <input type="text" id="name"
-          class="contact-form__input | block text-primary-white font-medium" placeholder="Name"
-          required title="This is an error message" />
-        <input type="text" id="email"
-          class="contact-form__input | block text-primary-white font-medium"
-          placeholder="Email address" required type="email" />
-        <input type="text" id="phone"
-          class="contact-form__input | block text-primary-white font-medium" placeholder="Phone"
-          required type="tel" />
-        <input type="text" id="message"
-          class="contact-form__input | block text-primary-white font-medium"
-          placeholder="Your message" required />
 
-        
-        <button type="submit" title="Submit"
-          class="contact-form__submit |  btn text-uppercase font-medium" data-type="light"
-          formnovalidate>Submit</button>
+      <form method="POST" class="contact-form">
+        <input
+          type="text"
+          name="username"
+          id="name"
+          class="contact-form__input | block text-primary-white font-medium"
+          placeholder="Name"
+          required
+          title="This is an error message"
+        />
+        {formErrors.name && <p class="input-error">Please enter your name</p>}
+
+        <input
+          type="text"
+          id="email"
+          class="contact-form__input | block text-primary-white font-medium"
+          placeholder="Email address"
+          type="email"
+        />
+        {
+          formErrors.email_address && (
+            <p class="input-error">Please enter email address</p>
+          )
+        }
+
+        <input
+          type="text"
+          id="phone"
+          class="contact-form__input | block text-primary-white font-medium"
+          placeholder="Phone"
+          required
+          type="tel"
+        />
+        {
+          formErrors.phone && (
+            <p class="input-error">Please enter phone number</p>
+          )
+        }
+
+        <input
+          id="message"
+          class="contact-form__input | block text-primary-white font-medium"
+          required
+          placeholder="Your message"
+        />
+        {formErrors.text && <p class="input-error">Please enter text</p>}
+
+        <button
+          type="submit"
+          title="Submit"
+          class="contact-form__submit | btn text-uppercase font-medium"
+          data-type="light"
+        >
+          Submit
+        </button>
       </form>
     </div>
     <div id="err"></div>
@@ -41,23 +86,37 @@
     <div class="locations-wrapper">
       <CityLocations />
     </div>
-
   </div>
 </BaseLayout>
 
 <style lang="scss">
+  .input-error {
+    color: red;
+  }
+
   .page-wrapper {
     display: grid;
     gap: 4rem;
   }
 
+  .contact-form {
+  }
+
   .contact-form__submit {
     padding-inline: 3rem;
-    padding-block: .95em;
+    padding-block: 0.95em;
     align-self: center;
   }
 
   .contact-form__input {
+    & + & {
+      margin-top: 1em;
+    }
+
+    &:last-of-type {
+      margin-bottom: 1.5em;
+    }
+
     // remove default styles
     background-color: inherit;
     outline: none;
@@ -68,8 +127,8 @@
     box-shadow: 0 var(--border-bottom-size) 2px -2px var(--color-primary-white);
 
     width: 100%;
-    padding-block: .4em;
-    padding-left: .5em;
+    padding-block: 0.4em;
+    padding-left: 0.5em;
     font-size: var(--font-size-sm);
 
     &:where(:active, :focus-within) {
@@ -88,7 +147,7 @@
   .hero {
     text-align: center;
 
-    &>h1 {
+    & > h1 {
       margin-bottom: 0.1em;
     }
   }
@@ -111,12 +170,9 @@
   }
 
   @media (min-width: 890px) {
-
-
     .content {
       background-image: url("/assets/contact/desktop/bg-pattern-hero-desktop.svg");
       background-position: top left;
-
     }
 
     .hero {
@@ -145,19 +201,24 @@
   }
 </style>
 
-<script>
-  const submit = document.querySelector("button");
-  console.log(submit);
+<!-- <script>
+  const submit = document.querySelector(".contact-form__submit");
   submit.addEventListener("click", (event) => {
-    const buttons = document.querySelectorAll('.contact-form__input');
-
+    // event.preventDefault();
+    const buttons = document.querySelectorAll(".contact-form__input");
     buttons.forEach((button) => {
-      console.log(button);
+      // switch (button.id) {
+      //   case 'name':
+      //     return
+      //   case 'email':
+      //     break;
+      //   case 'name':
+      //     break;
+      //   case 'name':
+      //     break;
+      // }
+      // console.log(button.id)
+      // console.log(button);
     });
-    event.preventDefault();
-
-  })
-
-
-
-</script>
+  });
+</script> -->
